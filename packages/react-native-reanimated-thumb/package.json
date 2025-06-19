@@ -17,11 +17,11 @@
         "js",
         "javascript"
     ],
-    "homepage": "https://github.com/alpheusday/scrolia",
-    "bugs": "https://github.com/alpheusday/scrolia/issues",
+    "homepage": "https://github.com/scrolia/react-native",
+    "bugs": "https://github.com/scrolia/react-native/issues",
     "repository": {
         "type": "git",
-        "url": "https://github.com/alpheusday/scrolia.git",
+        "url": "https://github.com/scrolia/react-native.git",
         "directory": "packages/react-native-reanimated-thumb"
     },
     "license": "MIT",
