@@ -1,0 +1,15 @@
+[files]
+extend-exclude = [
+    ".git/",
+    ".github/",
+    "__MACOSX/",
+    ".DS_Store",
+    "node_modules/",
+    "dist/",
+    "apis/",
+    ".expo/",
+    "expo-env.d.ts",
+    "*.tsbuildinfo",
+    "*.log",
+    "pnpm-debug.log*",
+]
