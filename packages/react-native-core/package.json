@@ -23,7 +23,10 @@
         "directory": "packages/react-native-core"
     },
     "license": "MIT",
-    "author": "Alpheus Tang",
+    "author": {
+        "name": "Alpheus Tang",
+        "url": "https://alpheus.day"
+    },
     "exports": {
         ".": {
             "types": "./dist/types/index.d.ts",

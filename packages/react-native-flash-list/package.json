@@ -26,7 +26,10 @@
         "directory": "packages/react-native-flash-list"
     },
     "license": "MIT",
-    "author": "Alpheus Tang",
+    "author": {
+        "name": "Alpheus Tang",
+        "url": "https://alpheus.day"
+    },
     "exports": {
         ".": {
             "types": "./dist/types/index.d.ts",
