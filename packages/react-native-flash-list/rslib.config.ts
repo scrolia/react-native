@@ -8,7 +8,7 @@ export default defineConfig({
             bundle: false,
             output: {
                 distPath: {
-                    root: "./dist/esm",
+                    root: "./dist",
                 },
             },
         },
@@ -16,11 +16,11 @@ export default defineConfig({
             format: "cjs",
             bundle: false,
             dts: {
-                distPath: "./dist/types",
+                distPath: "./dist",
             },
             output: {
                 distPath: {
-                    root: "./dist/cjs",
+                    root: "./dist",
                 },
             },
         },
