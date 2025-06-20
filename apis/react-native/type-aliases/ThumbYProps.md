@@ -6,6 +6,6 @@
 type ThumbYProps = ViewProps;
 ```
 
-Defined in: packages/react-native-core-thumb/dist/types/thumb/y/index.d.ts:4
+Defined in: packages/react-native-core-thumb/dist/thumb/y/index.d.ts:4
 
 Props for the `ThumbY` component.

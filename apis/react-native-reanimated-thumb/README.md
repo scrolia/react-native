@@ -1,6 +1,6 @@
 [< Back](../../README.md)
 
-# @scrolia/react-native-reanimated-thumb v0.4.0
+# @scrolia/react-native-reanimated-thumb v0.5.0
 
 ## Type Aliases
 

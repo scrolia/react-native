@@ -6,7 +6,7 @@
 function Scrollbar(props): Element;
 ```
 
-Defined in: packages/react-native/src/components/scrollbar.tsx:44
+Defined in: [packages/react-native/src/components/scrollbar.tsx:44](https://github.com/scrolia/react-native/blob/857962ebd68db30fb8868d423777bb744b95b578/packages/react-native/src/components/scrollbar.tsx#L44)
 
 Scrollbar component.
 

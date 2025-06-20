@@ -6,6 +6,6 @@
 type Options = Format<Partial<Omit<CompleteOptions, "thumbColor" | "x" | "y"> & object>>;
 ```
 
-Defined in: packages/react-native-core/dist/types/@types/options.d.ts:100
+Defined in: packages/react-native-core/dist/@types/options.d.ts:100
 
 Scrollbar options.
