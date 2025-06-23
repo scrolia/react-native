@@ -1,109 +1,34 @@
 "use client";
 
-import type { ScrollView } from "react-native";
+import type { Format } from "ts-vista";
 
 import type { Options } from "#/@types/options";
-import type { ElType } from "#/@types/states";
-import type {
-    ScrollCoreOptions,
-    ScrollCoreStatesOptions,
-} from "#/contexts/core";
 
 import * as React from "react";
-import { Platform } from "react-native";
 
-import { MARGIN } from "#/configs";
-import { CoreContext } from "#/contexts/core";
-import { Sub } from "#/providers/sub";
+import { type ContentType, ScrollCoreContext } from "#/contexts/scrollcore";
 
-type ScrollCoreProviderProps = {
-    options: Options;
-    children: React.ReactNode;
-};
+/** Props for the `Provider` component. */
+type ProviderProps = Format<
+    Options & {
+        children?: React.ReactNode;
+    }
+>;
 
-const defaultIndivOptions: ScrollCoreStatesOptions = {
-    thumbColor: {
-        base: "#99999955",
-        hover: "#99999977",
-        press: "#99999999",
-    },
-    setScrollbarLength: (length: number): number => {
-        return Math.max(10, length - MARGIN);
-    },
-};
+/** Provider component. */
+const Provider = (props: ProviderProps): React.JSX.Element => {
+    const { children, ...p } = props;
 
-const ScrollCoreProvider = (
-    props: ScrollCoreProviderProps,
-): React.JSX.Element => {
-    const {
-        options: { x, y, thumbColor, setScrollbarLength, ...o },
-        children,
-    } = props;
+    const contentTypeX = React.useRef<ContentType>("scrollview");
+    const contentTypeY = React.useRef<ContentType>("scrollview");
 
-    const options: ScrollCoreOptions = {
-        disabled: o.disabled ?? false,
-        headless: o.headless ?? false,
-        noAnimation: o.noAnimation ?? false,
-        useNativeDriver: o.useNativeDriver ?? Platform.OS !== "web",
-    };
-
-    const indivOptionsX: ScrollCoreStatesOptions = {
-        ...x,
-        thumbColor: {
-            base:
-                x?.thumbColor?.base ??
-                thumbColor?.base ??
-                defaultIndivOptions.thumbColor.base,
-            hover:
-                x?.thumbColor?.hover ??
-                thumbColor?.hover ??
-                defaultIndivOptions.thumbColor.hover,
-            press:
-                x?.thumbColor?.press ??
-                thumbColor?.press ??
-                defaultIndivOptions.thumbColor.press,
-        },
-        setScrollbarLength:
-            x?.setScrollbarLength ??
-            setScrollbarLength ??
-            defaultIndivOptions.setScrollbarLength,
-    };
-
-    const indivOptionsY: ScrollCoreStatesOptions = {
-        ...y,
-        thumbColor: {
-            base:
-                y?.thumbColor?.base ??
-                thumbColor?.base ??
-                defaultIndivOptions.thumbColor.base,
-            hover:
-                y?.thumbColor?.hover ??
-                thumbColor?.hover ??
-                defaultIndivOptions.thumbColor.hover,
-            press:
-                y?.thumbColor?.press ??
-                thumbColor?.press ??
-                defaultIndivOptions.thumbColor.press,
-        },
-        setScrollbarLength:
-            y?.setScrollbarLength ??
-            setScrollbarLength ??
-            defaultIndivOptions.setScrollbarLength,
-    };
-
-    const elXType = React.useRef<ElType>("scrollview");
-    const elYType = React.useRef<ElType>("scrollview");
-
-    const elXRef = React.useRef<ScrollView | null>(null);
-    const elYRef = React.useRef<ScrollView | null>(null);
+    const contentRefX = React.useRef<HTMLDivElement | null>(null);
+    const contentRefY = React.useRef<HTMLDivElement | null>(null);
 
     const [hvTrackX, setHvTrackX] = React.useState<boolean>(false);
     const [hvThumbX, setHvThumbX] = React.useState<boolean>(false);
     const [hvTrackY, setHvTrackY] = React.useState<boolean>(false);
     const [hvThumbY, setHvThumbY] = React.useState<boolean>(false);
-
-    const timeoutX = React.useRef<NodeJS.Timeout | null>(null);
-    const timeoutY = React.useRef<NodeJS.Timeout | null>(null);
 
     const totalX = React.useRef<number>(0);
     const totalY = React.useRef<number>(0);
@@ -120,37 +45,28 @@ const ScrollCoreProvider = (
     const [scrollbarOffsetX, setScrollbarOffsetX] = React.useState<number>(0);
     const [scrollbarOffsetY, setScrollbarOffsetY] = React.useState<number>(0);
 
-    const [isActiveX, setIsActiveX] = React.useState<boolean>(false);
-    const [isActiveY, setIsActiveY] = React.useState<boolean>(false);
+    const dragRefX = React.useRef<boolean>(false);
+    const dragRefY = React.useRef<boolean>(false);
 
-    // styling
-
-    const [trackXHover, setTrackXHover] = React.useState<boolean>(false);
-    const [thumbXHover, setThumbXHover] = React.useState<boolean>(false);
-
-    const [trackYHover, setTrackYHover] = React.useState<boolean>(false);
-    const [thumbYHover, setThumbYHover] = React.useState<boolean>(false);
-
-    const dragXRef = React.useRef<boolean>(false);
-    const [dragX, setDragX] = React.useState<boolean>(false);
-
-    const dragYRef = React.useRef<boolean>(false);
-    const [dragY, setDragY] = React.useState<boolean>(false);
+    const [isDragX, setDragX] = React.useState<boolean>(false);
+    const [isDragY, setDragY] = React.useState<boolean>(false);
 
     return (
         <>
-            <CoreContext.Provider
+            <ScrollCoreContext
                 value={{
-                    options,
+                    options: {
+                        ...p,
+                        disabled: p.disabled ?? false,
+                        animated: p.animated ?? false,
+                    },
                     x: {
-                        options: indivOptionsX,
-                        elType: elXType,
-                        elRef: elXRef,
+                        contentType: contentTypeX,
+                        contentRef: contentRefX,
                         hvTrack: hvTrackX,
                         setHvTrack: setHvTrackX,
                         hvThumb: hvThumbX,
                         setHvThumb: setHvThumbX,
-                        timeout: timeoutX,
                         total: totalX,
                         view: viewX,
                         viewOffset: viewOffsetX,
@@ -158,25 +74,17 @@ const ScrollCoreProvider = (
                         setScrollbarLength: setScrollbarLengthX,
                         scrollbarOffset: scrollbarOffsetX,
                         setScrollbarOffset: setScrollbarOffsetX,
-                        isActive: isActiveX,
-                        setIsActive: setIsActiveX,
-                        trackHover: trackXHover,
-                        setTrackHover: setTrackXHover,
-                        thumbHover: thumbXHover,
-                        setThumbHover: setThumbXHover,
-                        dragRef: dragXRef,
-                        drag: dragX,
-                        setDrag: setDragX,
+                        dragRef: dragRefX,
+                        isDrag: isDragX,
+                        setIsDrag: setDragX,
                     },
                     y: {
-                        options: indivOptionsY,
-                        elType: elYType,
-                        elRef: elYRef,
+                        contentType: contentTypeY,
+                        contentRef: contentRefY,
                         hvTrack: hvTrackY,
                         setHvTrack: setHvTrackY,
                         hvThumb: hvThumbY,
                         setHvThumb: setHvThumbY,
-                        timeout: timeoutY,
                         total: totalY,
                         view: viewY,
                         viewOffset: viewOffsetY,
@@ -184,23 +92,17 @@ const ScrollCoreProvider = (
                         setScrollbarLength: setScrollbarLengthY,
                         scrollbarOffset: scrollbarOffsetY,
                         setScrollbarOffset: setScrollbarOffsetY,
-                        isActive: isActiveY,
-                        setIsActive: setIsActiveY,
-                        trackHover: trackYHover,
-                        setTrackHover: setTrackYHover,
-                        thumbHover: thumbYHover,
-                        setThumbHover: setThumbYHover,
-                        dragRef: dragYRef,
-                        drag: dragY,
-                        setDrag: setDragY,
+                        dragRef: dragRefY,
+                        isDrag: isDragY,
+                        setIsDrag: setDragY,
                     },
                 }}
             >
-                <Sub>{children}</Sub>
-            </CoreContext.Provider>
+                {children}
+            </ScrollCoreContext>
         </>
     );
 };
 
-export type { ScrollCoreProviderProps };
-export { ScrollCoreProvider };
+export type { ProviderProps };
+export { Provider };

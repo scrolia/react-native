@@ -27,12 +27,12 @@ const reactNativeFlashList = path.resolve(
     "README.md",
 );
 
-const reactNativeReanimatedThumb = path.resolve(
+const reactNativeReanimated = path.resolve(
     process.cwd(),
     "..",
     "..",
     "apis",
-    "react-native-reanimated-thumb",
+    "react-native-reanimated",
     "README.md",
 );
 
@@ -43,7 +43,7 @@ const insert = (page) => {
     if (
         page.filename === reactNative ||
         page.filename === reactNativeFlashList ||
-        page.filename === reactNativeReanimatedThumb
+        page.filename === reactNativeReanimated
     ) {
         const head = "[< Back](../../README.md)\n\n";
         page.contents = head + page.contents;

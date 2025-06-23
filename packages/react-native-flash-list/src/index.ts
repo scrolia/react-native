@@ -1,5 +1,5 @@
-export type { FlashListXProps } from "#/list/x";
-export type { FlashListYProps } from "#/list/y";
+export type { FlashListXProps } from "#/x";
+export type { FlashListYProps } from "#/y";
 
-export { FlashListX } from "#/list/x";
-export { FlashListY } from "#/list/y";
+export { FlashListX } from "#/x";
+export { FlashListY } from "#/y";

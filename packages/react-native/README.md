@@ -1,6 +1,6 @@
 # Scrolia React Native
 
-A customizable scrollbar component.
+A headless scrollbar component.
 
 ## License
 

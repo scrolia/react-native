@@ -1,6 +1,6 @@
 {
     "name": "@scrolia/react-native-flash-list",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "description": "A set of list components for Scrolia React Native",
     "keywords": [
         "scrolia",
@@ -11,8 +11,8 @@
         "flashlist",
         "flash",
         "list",
-        "component",
         "headless",
+        "component",
         "ts",
         "typescript",
         "js",
@@ -48,14 +48,14 @@
         "@scrolia/react-native-core": "workspace:~"
     },
     "devDependencies": {
-        "@shopify/flash-list": "1.7.0",
-        "@types/react": "^18",
-        "react": "18.3.1",
-        "react-native": "0.76.0"
+        "@shopify/flash-list": "catalog:dev",
+        "@types/react": "catalog:dev",
+        "react": "catalog:dev",
+        "react-native": "catalog:dev"
     },
     "peerDependencies": {
-        "@shopify/flash-list": ">=1.7.0",
-        "react": ">=18.3.1",
-        "react-native": ">=0.76.0"
+        "@shopify/flash-list": "catalog:peer",
+        "react": "catalog:peer",
+        "react-native": "catalog:peer"
     }
 }

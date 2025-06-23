@@ -1,3 +1,19 @@
 packages:
-  - ./packages/*
-  - ./examples/*
+    - ./packages/*
+    - ./examples/*
+    - ./tests/*
+
+catalogs:
+    dep:
+        ts-vista: ~0.2.2
+    dev:
+        "@shopify/flash-list": 1.7.6
+        "@types/react": ~19.0.0
+        react: 19.0.0
+        react-native: 0.78.0
+        react-native-reanimated: 3.16.0
+    peer:
+        "@shopify/flash-list": ^1.7.6
+        react: ^19.0.0
+        react-native: ~0.78.0 || ~0.79.0 || ~0.80.0
+        react-native-reanimated: ^3.16.0

@@ -1,30 +1,49 @@
+import { Provider } from "@scrolia/react-native-core";
+
+import { Container } from "#/components/container";
+import { ContentX } from "#/components/content/x";
+import { ContentY } from "#/components/content/y";
+import { ListX } from "#/components/list/x";
+import { ListY } from "#/components/list/y";
+import { ThumbX } from "#/components/thumb/x";
+import { ThumbY } from "#/components/thumb/y";
+import { TrackX } from "#/components/track/x";
+import { TrackY } from "#/components/track/y";
+
+/** Scrollbar components. */
+const Scrollbar = {
+    Provider,
+    Container,
+    ContentX,
+    ContentY,
+    ListX,
+    ListY,
+    TrackX,
+    TrackY,
+    ThumbX,
+    ThumbY,
+};
+
 export type {
-    IndividualOptions,
+    OnDragEndOptions,
+    OnDragMoveOptions,
+    OnDragMoveResult,
+    OnDragStartOptions,
+    OnScrollOptions,
+    OnScrollResult,
+    OnSetLengthOptions,
+    OnSetLengthResult,
     Options,
-    ThumbColor,
+    Position,
+    ProviderProps,
+    ScrollCore,
+    ScrollCoreOptions,
+    ScrollCoreStates,
 } from "@scrolia/react-native-core";
-export type {
-    ThumbXProps,
-    ThumbYProps,
-} from "@scrolia/react-native-core-thumb";
 
-export type { ContainerProps } from "#/base/container";
-export type { ContentXProps } from "#/base/content/x";
-export type { ContentYProps } from "#/base/content/y";
-export type { ListXProps } from "#/base/list/x";
-export type { ListYProps } from "#/base/list/y";
-export type { TrackXProps } from "#/base/track/x";
-export type { TrackYProps } from "#/base/track/y";
-export type { ScrollbarProps } from "#/components/scrollbar";
+export {
+    ScrollCoreContext,
+    useScrollCore,
+} from "@scrolia/react-native-core";
 
-export { styles } from "@scrolia/react-native-core";
-export { ThumbX, ThumbY } from "@scrolia/react-native-core-thumb";
-
-export { Container } from "#/base/container";
-export { ContentX } from "#/base/content/x";
-export { ContentY } from "#/base/content/y";
-export { ListX } from "#/base/list/x";
-export { ListY } from "#/base/list/y";
-export { TrackX } from "#/base/track/x";
-export { TrackY } from "#/base/track/y";
-export { Scrollbar } from "#/components/scrollbar";
+export { Scrollbar };

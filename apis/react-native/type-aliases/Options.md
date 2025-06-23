@@ -3,9 +3,9 @@
 # Type Alias: Options
 
 ```ts
-type Options = Format<Partial<Omit<CompleteOptions, "thumbColor" | "x" | "y"> & object>>;
+type Options = Format<Partial<CompleteOptions>>;
 ```
 
-Defined in: packages/react-native-core/dist/@types/options.d.ts:100
+Defined in: packages/react-native-core/dist/@types/options.d.ts:121
 
 Scrollbar options.

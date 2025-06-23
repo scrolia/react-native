@@ -1,15 +1,15 @@
 {
     "name": "@scrolia/react-native",
-    "version": "0.5.0",
-    "description": "A customizable scrollbar component",
+    "version": "0.6.0",
+    "description": "A headless scrollbar component",
     "keywords": [
         "scrolia",
         "scrollbar",
         "react",
         "react-native",
         "react-native-web",
-        "component",
         "headless",
+        "component",
         "ts",
         "typescript",
         "js",
@@ -43,16 +43,15 @@
     ],
     "dependencies": {
         "@scrolia/react-native-core": "workspace:~",
-        "@scrolia/react-native-core-thumb": "workspace:~",
-        "ts-vista": "~0.2.2"
+        "ts-vista": "catalog:dep"
     },
     "devDependencies": {
-        "@types/react": "^18",
-        "react": "18.3.1",
-        "react-native": "0.76.0"
+        "@types/react": "catalog:dev",
+        "react": "catalog:dev",
+        "react-native": "catalog:dev"
     },
     "peerDependencies": {
-        "react": ">=18.3.1",
-        "react-native": ">=0.76.0"
+        "react": "catalog:peer",
+        "react-native": "catalog:peer"
     }
 }

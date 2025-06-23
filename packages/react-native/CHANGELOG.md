@@ -1,3 +1,72 @@
+## 0.6.0
+
+### Breaking Changes
+
+- Remove default styles
+- Remove `Scrollbar` component
+- Remove `headless` option
+- Remove `noAnimation` option
+- Remove `useNativeDriver` option
+- Remove `setScrollbarLength` option (configurable via `onSetLength`)
+- Remove `x` object options
+- Remove `y` object options
+- Remove `thumbColor` options
+- All components passed into `Scrollbar` object
+
+### What's New
+
+- React 19 support
+- Headless by default
+- Add `Provider` component
+- Add `onSetLength` function
+- Add `onScroll` function
+- Add `onDragStart` function
+- Add `onDragMove` function
+- Add `onDragEnd` function
+
+### Migrating from 0.5.0 to 0.6.0
+
+Import `Scrollbar` instead:
+
+```diff
+- import {
+-    Container,
+-    ContentX,
+-    ContentY,
+-    TrackX,
+-    TrackY,
+-    ThumbX,
+-    ThumbY,
+- } from "@scrolia/react-native";
++ import { Scrollbar as S } from "@scrolia/react-native";
+```
+
+`Provider` component required:
+
+```diff
+- <Container>
+-     <Content>{/* */}</Content>
+-     <TrackX>
+-         <ThumbX />
+-     </TrackX>
+-     <TrackY>
+-         <ThumbY />
+-     </TrackY>
+- </Container>
++ <S.Provider>
++     <S.Container>
++         <S.ContentX>
++             <S.ContentY>{/* */}</S.ContentY>
++         </S.ContentX>
++         <S.TrackX>
++             <S.ThumbX />
++         </S.TrackX>
++         <S.TrackY>
++             <S.ThumbY />
++         </S.TrackY>
++ </S.Provider>
+```
+
 ## 0.5.0 (2025-06-20)
 
 ### What's Changed

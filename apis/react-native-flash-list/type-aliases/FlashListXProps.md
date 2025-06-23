@@ -3,12 +3,20 @@
 # Type Alias: FlashListXProps\<T\>
 
 ```ts
-type FlashListXProps<T> = FlashListProps<T>;
+type FlashListXProps<T> = FlashListProps<T> & object;
 ```
 
-Defined in: [x.tsx:16](https://github.com/scrolia/react-native/blob/857962ebd68db30fb8868d423777bb744b95b578/packages/react-native-flash-list/src/list/x.tsx#L16)
+Defined in: x.tsx:15
 
 Props for the `FlashListX` component.
+
+## Type declaration
+
+### ref?
+
+```ts
+optional ref: React.Ref<FlashList<T>>;
+```
 
 ## Type Parameters
 
