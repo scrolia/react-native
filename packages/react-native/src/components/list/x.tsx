@@ -1,11 +1,6 @@
 "use client";
 
-import type {
-    FlatListProps,
-    LayoutChangeEvent,
-    NativeScrollEvent,
-    NativeSyntheticEvent,
-} from "react-native";
+import type { FlatListProps } from "react-native";
 
 import * as React from "react";
 import { FlatList } from "react-native";
@@ -43,24 +38,10 @@ const ListX = <T,>(props: ListXProps<T>): React.JSX.Element => {
         contentType,
     ]);
 
-    const { onLayout, onContentSizeChange, onScroll } = useContentHandlerX();
-
-    const handleLayout = (event: LayoutChangeEvent): void => {
-        if (!disabled) onLayout(event);
-        p.onLayout?.(event);
-    };
-
-    const handleContentSizeChange = (width: number, height: number): void => {
-        if (!disabled) onContentSizeChange(width, height);
-        p.onContentSizeChange?.(width, height);
-    };
-
-    const handleScroll = (
-        event: NativeSyntheticEvent<NativeScrollEvent>,
-    ): void => {
-        if (!disabled) onScroll(event);
-        p.onScroll?.(event);
-    };
+    const { onLayout, onContentSizeChange, onScroll } = useContentHandlerX({
+        disabled,
+        props,
+    });
 
     return (
         <>
@@ -71,9 +52,9 @@ const ListX = <T,>(props: ListXProps<T>): React.JSX.Element => {
                     p.showsHorizontalScrollIndicator ?? disabled
                 }
                 showsVerticalScrollIndicator={false}
-                onLayout={handleLayout}
-                onContentSizeChange={handleContentSizeChange}
-                onScroll={handleScroll}
+                onLayout={onLayout}
+                onContentSizeChange={onContentSizeChange}
+                onScroll={onScroll}
                 horizontal={true}
                 scrollEventThrottle={p.scrollEventThrottle ?? 5}
             >

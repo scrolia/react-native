@@ -1,10 +1,18 @@
-import type { LayoutChangeEvent } from "react-native";
+import type {
+    LayoutChangeEvent,
+    NativeScrollEvent,
+    NativeSyntheticEvent,
+} from "react-native";
+
+import type { UseContentHandlerOptions } from "#/hooks/content/x";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { useSetLengthY } from "#/hooks/base/length/y";
 import { useHandleScrollY } from "#/hooks/base/scroll/y";
 
-const useContentHandlerY = () => {
+const useContentHandlerY = (options?: UseContentHandlerOptions) => {
+    const { disabled, props } = options ?? {};
+
     const {
         y: { total, view },
     } = useScrollCore();
@@ -12,16 +20,29 @@ const useContentHandlerY = () => {
     const setLength = useSetLengthY();
 
     const onLayout = (event: LayoutChangeEvent): void => {
-        view.current = event.nativeEvent.layout.height;
-        setLength();
+        if (!disabled) {
+            view.current = event.nativeEvent.layout.height;
+            setLength();
+        }
+
+        props?.onLayout?.(event);
     };
 
-    const onContentSizeChange = (_: number, height: number): void => {
-        total.current = height;
-        setLength();
+    const onContentSizeChange = (width: number, height: number): void => {
+        if (!disabled) {
+            total.current = height;
+            setLength();
+        }
+
+        props?.onContentSizeChange?.(width, height);
     };
 
-    const onScroll = useHandleScrollY();
+    const _onScroll = useHandleScrollY();
+
+    const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>): void => {
+        if (!disabled) _onScroll(event);
+        props?.onScroll?.(event);
+    };
 
     return {
         onLayout,

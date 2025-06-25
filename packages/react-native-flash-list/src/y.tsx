@@ -1,11 +1,6 @@
 "use client";
 
 import type { FlashListProps } from "@shopify/flash-list";
-import type {
-    LayoutChangeEvent,
-    NativeScrollEvent,
-    NativeSyntheticEvent,
-} from "react-native";
 
 import { useContentHandlerY, useScrollCore } from "@scrolia/react-native";
 import { FlashList } from "@shopify/flash-list";
@@ -41,24 +36,10 @@ const FlashListY = <T,>(props: FlashListYProps<T>): React.JSX.Element => {
         contentType,
     ]);
 
-    const { onLayout, onContentSizeChange, onScroll } = useContentHandlerY();
-
-    const handleLayout = (event: LayoutChangeEvent): void => {
-        if (!disabled) onLayout(event);
-        p.onLayout?.(event);
-    };
-
-    const handleContentSizeChange = (width: number, height: number): void => {
-        if (!disabled) onContentSizeChange(width, height);
-        p.onContentSizeChange?.(width, height);
-    };
-
-    const handleScroll = (
-        event: NativeSyntheticEvent<NativeScrollEvent>,
-    ): void => {
-        if (!disabled) onScroll(event);
-        p.onScroll?.(event);
-    };
+    const { onLayout, onContentSizeChange, onScroll } = useContentHandlerY({
+        disabled,
+        props,
+    });
 
     return (
         <>
@@ -69,9 +50,9 @@ const FlashListY = <T,>(props: FlashListYProps<T>): React.JSX.Element => {
                 showsVerticalScrollIndicator={
                     p.showsHorizontalScrollIndicator ?? disabled
                 }
-                onLayout={handleLayout}
-                onContentSizeChange={handleContentSizeChange}
-                onScroll={handleScroll}
+                onLayout={onLayout}
+                onContentSizeChange={onContentSizeChange}
+                onScroll={onScroll}
                 horizontal={false}
                 scrollEventThrottle={p.scrollEventThrottle ?? 5}
             >
