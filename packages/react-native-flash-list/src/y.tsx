@@ -7,7 +7,7 @@ import type {
     NativeSyntheticEvent,
 } from "react-native";
 
-import { useContentHandlerY, useScrollCore } from "@scrolia/react-native-core";
+import { useContentHandlerY, useScrollCore } from "@scrolia/react-native";
 import { FlashList } from "@shopify/flash-list";
 import * as React from "react";
 

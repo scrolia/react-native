@@ -42,7 +42,6 @@
         "dist"
     ],
     "dependencies": {
-        "@scrolia/react-native-core": "workspace:~",
         "ts-vista": "catalog:dep"
     },
     "devDependencies": {

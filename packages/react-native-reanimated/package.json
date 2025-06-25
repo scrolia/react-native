@@ -43,7 +43,7 @@
         "dist"
     ],
     "dependencies": {
-        "@scrolia/react-native-core": "workspace:~"
+        "@scrolia/react-native": "workspace:~"
     },
     "devDependencies": {
         "@types/react": "catalog:dev",

@@ -2,9 +2,11 @@
 
 import type { ViewProps } from "react-native";
 
-import { useScrollCore, useThumbHandlerY } from "@scrolia/react-native-core";
 import * as React from "react";
 import { Animated, View } from "react-native";
+
+import { useScrollCore } from "#/contexts/scrollcore";
+import { useThumbHandlerY } from "#/hooks/thumb/y";
 
 /** Props for the `ThumbY` component. */
 type ThumbYProps = ViewProps & {

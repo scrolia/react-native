@@ -177,25 +177,6 @@ importers:
 
   packages/react-native:
     dependencies:
-      '@scrolia/react-native-core':
-        specifier: workspace:~
-        version: link:../react-native-core
-      ts-vista:
-        specifier: catalog:dep
-        version: 0.2.2
-    devDependencies:
-      '@types/react':
-        specifier: catalog:dev
-        version: 19.0.14
-      react:
-        specifier: catalog:dev
-        version: 19.0.0
-      react-native:
-        specifier: catalog:dev
-        version: 0.78.0(@babel/core@7.27.4)(@types/react@19.0.14)(react@19.0.0)
-
-  packages/react-native-core:
-    dependencies:
       ts-vista:
         specifier: catalog:dep
         version: 0.2.2
@@ -212,9 +193,9 @@ importers:
 
   packages/react-native-flash-list:
     dependencies:
-      '@scrolia/react-native-core':
+      '@scrolia/react-native':
         specifier: workspace:~
-        version: link:../react-native-core
+        version: link:../react-native
     devDependencies:
       '@shopify/flash-list':
         specifier: catalog:dev
@@ -231,9 +212,9 @@ importers:
 
   packages/react-native-reanimated:
     dependencies:
-      '@scrolia/react-native-core':
+      '@scrolia/react-native':
         specifier: workspace:~
-        version: link:../react-native-core
+        version: link:../react-native
     devDependencies:
       '@types/react':
         specifier: catalog:dev

@@ -18,7 +18,6 @@ const dConfig = getDefaultConfig(projectRoot);
 
 // monorepo packages
 const monorepoPackages = {
-    core: path.join(monoRepoRoot, "packages", "react-native-core"),
     scrolia: path.join(monoRepoRoot, "packages", "react-native"),
 };
 

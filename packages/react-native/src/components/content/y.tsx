@@ -7,9 +7,11 @@ import type {
     ScrollViewProps,
 } from "react-native";
 
-import { useContentHandlerY, useScrollCore } from "@scrolia/react-native-core";
 import * as React from "react";
 import { ScrollView } from "react-native";
+
+import { useScrollCore } from "#/contexts/scrollcore";
+import { useContentHandlerY } from "#/hooks/content/y";
 
 /** Props for the `ContentY` component. */
 type ContentYProps = ScrollViewProps & {

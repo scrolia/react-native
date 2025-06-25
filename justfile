@@ -7,7 +7,6 @@ tsc := node_bin + "tsc"
 rslib := node_bin + "rslib"
 typedoc := node_bin + "typedoc"
 
-core := "packages/react-native-core"
 native := "packages/react-native"
 flashlist := "packages/react-native-flash-list"
 reanimated := "packages/react-native-reanimated"
@@ -32,7 +31,6 @@ setup:
 
 # Lint with TypeScript Compiler
 tsc:
-    cd ./{{core}} && ../../{{tsc}} --noEmit
     cd ./{{native}} && ../../{{tsc}} --noEmit
     cd ./{{flashlist}} && ../../{{tsc}} --noEmit
     cd ./{{reanimated}} && ../../{{tsc}} --noEmit
@@ -49,7 +47,6 @@ fmt:
 
 # Build all packages
 build:
-    cd ./{{core}} && ../../{{rslib}} build
     cd ./{{native}} && ../../{{rslib}} build
     cd ./{{flashlist}} && ../../{{rslib}} build
     cd ./{{reanimated}} && ../../{{rslib}} build
@@ -77,7 +74,6 @@ clean:
     rm -rf ./{{reanimated}}/dist
     rm -rf ./{{flashlist}}/dist
     rm -rf ./{{native}}/dist
-    rm -rf ./{{core}}/dist
 
 # Clean everything
 clean-all:
@@ -90,6 +86,5 @@ clean-all:
     rm -rf ./{{reanimated}}/node_modules
     rm -rf ./{{flashlist}}/node_modules
     rm -rf ./{{native}}/node_modules
-    rm -rf ./{{core}}/node_modules
 
     rm -rf ./node_modules

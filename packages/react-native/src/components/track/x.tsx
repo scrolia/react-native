@@ -2,9 +2,10 @@
 
 import type { ViewProps } from "react-native";
 
-import { useScrollCore } from "@scrolia/react-native-core";
 import * as React from "react";
 import { Animated, View } from "react-native";
+
+import { useScrollCore } from "#/contexts/scrollcore";
 
 /** Props for the `TrackX` component. */
 type TrackXProps = ViewProps & {

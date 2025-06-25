@@ -7,9 +7,11 @@ import type {
     NativeSyntheticEvent,
 } from "react-native";
 
-import { useContentHandlerX, useScrollCore } from "@scrolia/react-native-core";
 import * as React from "react";
 import { FlatList } from "react-native";
+
+import { useScrollCore } from "#/contexts/scrollcore";
+import { useContentHandlerX } from "#/hooks/content/x";
 
 /** Props for the `ListX` component. */
 type ListXProps<T> = FlatListProps<T> & {
