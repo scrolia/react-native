@@ -47,9 +47,9 @@ fmt:
 
 # Build all packages
 build:
-    cd ./{{native}} && ../../{{tsdown}}
-    cd ./{{flashlist}} && ../../{{tsdown}}
-    cd ./{{reanimated}} && ../../{{tsdown}}
+    cd ./{{native}} && ../../{{tsdown}} -c ./tsdown.config.ts
+    cd ./{{flashlist}} && ../../{{tsdown}} -c ./tsdown.config.ts
+    cd ./{{reanimated}} && ../../{{tsdown}} -c ./tsdown.config.ts
 
 # Generate APIs documentation
 api:
