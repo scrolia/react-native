@@ -4,7 +4,7 @@ set windows-shell := ["powershell"]
 node_bin := "./node_modules/.bin/"
 biome := node_bin + "biome"
 tsc := node_bin + "tsc"
-rslib := node_bin + "rslib"
+tsdown := node_bin + "tsdown"
 typedoc := node_bin + "typedoc"
 
 native := "packages/react-native"
@@ -47,9 +47,9 @@ fmt:
 
 # Build all packages
 build:
-    cd ./{{native}} && ../../{{rslib}} build
-    cd ./{{flashlist}} && ../../{{rslib}} build
-    cd ./{{reanimated}} && ../../{{rslib}} build
+    cd ./{{native}} && ../../{{tsdown}}
+    cd ./{{flashlist}} && ../../{{tsdown}}
+    cd ./{{reanimated}} && ../../{{tsdown}}
 
 # Generate APIs documentation
 api:
