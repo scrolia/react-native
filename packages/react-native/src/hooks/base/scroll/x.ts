@@ -8,7 +8,7 @@ const pos = "x" as const;
 
 const useHandleScrollX = () => {
     const {
-        options: { disabled, animated, onScroll },
+        options: { disabled, animated, plugins },
         [pos]: {
             hvTrack,
             hvThumb,
@@ -26,17 +26,21 @@ const useHandleScrollX = () => {
         const scrollbarOffsetNext: number =
             (viewOffset.current / total.current) * view.current;
 
-        const result: OnScrollResult | undefined = onScroll?.({
-            position: pos,
-            isDisabled: disabled,
-            isAnimated: animated,
-            isDefined: hvTrack && hvThumb,
-            total: total.current,
-            view: view.current,
-            viewOffset: viewOffset.current,
-            scrollbarOffsetPrev: scrollbarOffset,
-            scrollbarOffsetNext,
-        });
+        let result: OnScrollResult | undefined;
+
+        for (const plugin of plugins) {
+            result = plugin.onScroll?.({
+                position: pos,
+                isDisabled: disabled,
+                isAnimated: animated,
+                isDefined: hvTrack && hvThumb,
+                total: total.current,
+                view: view.current,
+                viewOffset: viewOffset.current,
+                scrollbarOffsetPrev: scrollbarOffset,
+                scrollbarOffsetNext,
+            });
+        }
 
         let offset: number;
 

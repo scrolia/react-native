@@ -6,6 +6,7 @@ import * as React from "react";
 import { Animated, View } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { getComponentProps } from "#/functions/props";
 
 /** Props for the `TrackY` component. */
 type TrackYProps = ViewProps & {
@@ -14,12 +15,16 @@ type TrackYProps = ViewProps & {
 
 /** Vertical track component. */
 const TrackY = (props: TrackYProps): React.JSX.Element => {
-    const { children, ...p } = props;
-
     const {
-        options: { disabled, animated },
+        options: { disabled, animated, plugins },
         x: { setHvTrack },
     } = useScrollCore();
+
+    const p: TrackYProps = getComponentProps({
+        name: "trackY",
+        props,
+        plugins,
+    });
 
     React.useEffect((): void => {
         setHvTrack(true);
@@ -36,7 +41,7 @@ const TrackY = (props: TrackYProps): React.JSX.Element => {
                     {...p}
                     ref={p.ref}
                 >
-                    {children}
+                    {p.children}
                 </Animated.View>
             </>
         );
@@ -48,7 +53,7 @@ const TrackY = (props: TrackYProps): React.JSX.Element => {
                 {...p}
                 ref={p.ref}
             >
-                {children}
+                {p.children}
             </View>
         </>
     );

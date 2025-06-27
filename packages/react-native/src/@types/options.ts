@@ -1,5 +1,15 @@
 import type { Format, Partial } from "ts-vista";
 
+import type { ContainerProps } from "#/components/container";
+import type { ContentXProps } from "#/components/content/x";
+import type { ContentYProps } from "#/components/content/y";
+import type { ListXProps } from "#/components/list/x";
+import type { ListYProps } from "#/components/list/y";
+import type { ThumbXProps } from "#/components/thumb/x";
+import type { ThumbYProps } from "#/components/thumb/y";
+import type { TrackXProps } from "#/components/track/x";
+import type { TrackYProps } from "#/components/track/y";
+
 /** The position of the scrollbar. */
 type Position = "x" | "y";
 
@@ -83,6 +93,8 @@ type OnDragMoveBaseOptions = {
     delta: number;
     /** The ratio of the visible length to the total length. */
     ratio: number;
+    /** The offset to scroll to, aka the default value. */
+    scrollTo: number;
 };
 
 /** The options for the `onDragMove` function. */
@@ -112,6 +124,44 @@ type OnDragEndBaseOptions = {
 /** The options for the `onDragEnd` function. */
 type OnDragEndOptions = Format<FunctionOptions & OnDragEndBaseOptions>;
 
+/** The function to get previous props and return new props. */
+type PluginPropsFunction<T> = (prev: T) => T;
+
+type CompletePluginProps<ListX = unknown, ListY = unknown> = {
+    container: PluginPropsFunction<ContainerProps>;
+    contentX: PluginPropsFunction<ContentXProps>;
+    contentY: PluginPropsFunction<ContentYProps>;
+    listX: PluginPropsFunction<ListXProps<ListX>>;
+    listY: PluginPropsFunction<ListYProps<ListY>>;
+    trackX: PluginPropsFunction<TrackXProps>;
+    trackY: PluginPropsFunction<TrackYProps>;
+    thumbX: PluginPropsFunction<ThumbXProps>;
+    thumbY: PluginPropsFunction<ThumbYProps>;
+};
+
+/** Scrollbar plugin props. */
+type PluginProps = Format<Partial<CompletePluginProps>>;
+
+type CompletePlugin = {
+    /** The name of the plugin. */
+    name: string;
+    /** The props for the scrollbar components. */
+    props: PluginProps;
+    /** The function to be called when the length of the scrollbar is being set. */
+    onSetLength: (options: OnSetLengthOptions) => OnSetLengthResult | undefined;
+    /** The function to be called when the scrollbar is being scrolled. */
+    onScroll: (options: OnScrollOptions) => OnScrollResult | undefined;
+    /** The function to be called when the scrollbar is being dragged. */
+    onDragStart: (options: OnDragStartOptions) => void;
+    /** The function to be called when the scrollbar is dragged and move. */
+    onDragMove: (options: OnDragMoveOptions) => OnDragMoveResult | undefined;
+    /** The function to be called when the scrollbar is released. */
+    onDragEnd: (options: OnDragEndOptions) => void;
+};
+
+/** Scrollbar plugin. */
+type Plugin = Format<Partial<CompletePlugin>>;
+
 type CompleteOptions = {
     /**
      * Whether disable the scrollbar.
@@ -125,16 +175,12 @@ type CompleteOptions = {
      * By default, it is `false`.
      */
     animated: boolean;
-    /** The function to be called when the length of the scrollbar is being set. */
-    onSetLength: (options: OnSetLengthOptions) => OnSetLengthResult | undefined;
-    /** The function to be called when the scrollbar is being scrolled. */
-    onScroll: (options: OnScrollOptions) => OnScrollResult | undefined;
-    /** The function to be called when the scrollbar is being dragged. */
-    onDragStart: (options: OnDragStartOptions) => void;
-    /** The function to be called when the scrollbar is dragged and move. */
-    onDragMove: (options: OnDragMoveOptions) => OnDragMoveResult | undefined;
-    /** The function to be called when the scrollbar is released. */
-    onDragEnd: (options: OnDragEndOptions) => void;
+    /**
+     * The plugins for the scrollbar.
+     *
+     * By default, it is `[]`.
+     */
+    plugins: Plugin[];
 };
 
 /** Scrollbar options. */
@@ -150,6 +196,9 @@ export type {
     OnDragMoveOptions,
     OnDragMoveResult,
     OnDragEndOptions,
+    PluginPropsFunction,
+    PluginProps,
+    Plugin,
     CompleteOptions,
     Options,
 };

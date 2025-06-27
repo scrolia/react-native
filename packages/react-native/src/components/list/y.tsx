@@ -6,6 +6,7 @@ import * as React from "react";
 import { FlatList } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { getComponentProps } from "#/functions/props";
 import { useContentHandlerY } from "#/hooks/content/y";
 
 /** Props for the `ListY` component. */
@@ -19,12 +20,16 @@ type ListYProps<T> = FlatListProps<T> & {
  * Use `ContentY` for generic content.
  */
 const ListY = <T,>(props: ListYProps<T>): React.JSX.Element => {
-    const { children, ...p } = props;
-
     const {
-        options: { disabled },
+        options: { disabled, plugins },
         y: { contentRef, contentType },
     } = useScrollCore();
+
+    const p: ListYProps<T> = getComponentProps({
+        name: "listY",
+        props,
+        plugins,
+    });
 
     React.useImperativeHandle(p.ref, (): FlatList => {
         return contentRef.current as FlatList;
@@ -40,7 +45,7 @@ const ListY = <T,>(props: ListYProps<T>): React.JSX.Element => {
 
     const { onLayout, onContentSizeChange, onScroll } = useContentHandlerY({
         disabled,
-        props,
+        props: p,
     });
 
     return (
@@ -58,7 +63,7 @@ const ListY = <T,>(props: ListYProps<T>): React.JSX.Element => {
                 horizontal={false}
                 scrollEventThrottle={p.scrollEventThrottle ?? 5}
             >
-                {children}
+                {p.children}
             </FlatList>
         </>
     );

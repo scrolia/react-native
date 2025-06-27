@@ -6,7 +6,7 @@ const pos = "x" as const;
 
 const useSetLengthX = () => {
     const {
-        options: { disabled, animated, onSetLength },
+        options: { disabled, animated, plugins },
         [pos]: {
             hvTrack,
             hvThumb,
@@ -25,17 +25,22 @@ const useSetLengthX = () => {
 
         const scrollbarLengthNext: number = (_view / _total) * _view;
 
-        const result: OnSetLengthResult | undefined = onSetLength?.({
-            position: pos,
-            isDisabled: disabled,
-            isAnimated: animated,
-            isDefined: hvTrack && hvThumb,
-            total: _total,
-            view: _view,
-            viewOffset: _viewOffset,
-            scrollbarLengthPrev: scrollbarLength,
-            scrollbarLengthNext,
-        });
+        let result: OnSetLengthResult | undefined;
+
+        for (const plugin of plugins) {
+            result = plugin.onSetLength?.({
+                position: pos,
+                isDisabled: disabled,
+                isAnimated: animated,
+                isDefined: hvTrack && hvThumb,
+                total: _total,
+                view: _view,
+                viewOffset: _viewOffset,
+                scrollbarLengthPrev: scrollbarLength,
+                scrollbarLengthNext:
+                    result?.scrollbarLength ?? scrollbarLengthNext,
+            });
+        }
 
         let length: number;
 

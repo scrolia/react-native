@@ -2,7 +2,11 @@
 
 import type { FlashListProps } from "@shopify/flash-list";
 
-import { useContentHandlerY, useScrollCore } from "@scrolia/react-native";
+import {
+    getComponentProps,
+    useContentHandlerY,
+    useScrollCore,
+} from "@scrolia/react-native";
 import { FlashList } from "@shopify/flash-list";
 import * as React from "react";
 
@@ -17,14 +21,18 @@ type FlashListYProps<T> = FlashListProps<T> & {
  * **This component requires `@shopify/flash-list` to be installed.**
  */
 const FlashListY = <T,>(props: FlashListYProps<T>): React.JSX.Element => {
-    const { children, ref, ...p } = props;
-
     const {
-        options: { disabled },
+        options: { disabled, plugins },
         x: { contentType, contentRef },
     } = useScrollCore();
 
-    React.useImperativeHandle(ref, (): FlashList<T> => {
+    const p: FlashListYProps<T> = getComponentProps({
+        name: "listY",
+        props,
+        plugins,
+    });
+
+    React.useImperativeHandle(p.ref, (): FlashList<T> => {
         return contentRef.current as FlashList<T>;
     }, [
         contentRef,
@@ -56,7 +64,7 @@ const FlashListY = <T,>(props: FlashListYProps<T>): React.JSX.Element => {
                 horizontal={false}
                 scrollEventThrottle={p.scrollEventThrottle ?? 5}
             >
-                {children}
+                {p.children}
             </FlashList>
         </>
     );

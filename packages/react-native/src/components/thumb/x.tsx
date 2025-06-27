@@ -6,6 +6,7 @@ import * as React from "react";
 import { Animated, View } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { getComponentProps } from "#/functions/props";
 import { useThumbHandlerX } from "#/hooks/thumb/x";
 
 /** Props for the `ThumbX` component. */
@@ -15,12 +16,16 @@ type ThumbXProps = ViewProps & {
 
 /** Horizontal thumb component. */
 const ThumbX = (props: ThumbXProps): React.JSX.Element => {
-    const { children, ...p } = props;
-
     const {
-        options: { animated },
+        options: { animated, plugins },
         x: { setHvThumb, scrollbarLength, scrollbarOffset },
     } = useScrollCore();
+
+    const p: ThumbXProps = getComponentProps({
+        name: "thumbX",
+        props,
+        plugins,
+    });
 
     React.useEffect((): void => {
         setHvThumb(true);
@@ -49,7 +54,7 @@ const ThumbX = (props: ThumbXProps): React.JSX.Element => {
                         },
                     ]}
                 >
-                    {children}
+                    {p.children}
                 </Animated.View>
             </>
         );
@@ -73,7 +78,7 @@ const ThumbX = (props: ThumbXProps): React.JSX.Element => {
                     },
                 ]}
             >
-                {children}
+                {p.children}
             </View>
         </>
     );

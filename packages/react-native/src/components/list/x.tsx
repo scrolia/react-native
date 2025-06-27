@@ -6,6 +6,7 @@ import * as React from "react";
 import { FlatList } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { getComponentProps } from "#/functions/props";
 import { useContentHandlerX } from "#/hooks/content/x";
 
 /** Props for the `ListX` component. */
@@ -19,12 +20,16 @@ type ListXProps<T> = FlatListProps<T> & {
  * Use `ContentX` for generic content.
  */
 const ListX = <T,>(props: ListXProps<T>): React.JSX.Element => {
-    const { children, ...p } = props;
-
     const {
-        options: { disabled },
+        options: { disabled, plugins },
         x: { contentRef, contentType },
     } = useScrollCore();
+
+    const p: ListXProps<T> = getComponentProps({
+        name: "listX",
+        props,
+        plugins,
+    });
 
     React.useImperativeHandle(p.ref, (): FlatList => {
         return contentRef.current as FlatList;
@@ -40,7 +45,7 @@ const ListX = <T,>(props: ListXProps<T>): React.JSX.Element => {
 
     const { onLayout, onContentSizeChange, onScroll } = useContentHandlerX({
         disabled,
-        props,
+        props: p,
     });
 
     return (
@@ -58,7 +63,7 @@ const ListX = <T,>(props: ListXProps<T>): React.JSX.Element => {
                 horizontal={true}
                 scrollEventThrottle={p.scrollEventThrottle ?? 5}
             >
-                {children}
+                {p.children}
             </FlatList>
         </>
     );

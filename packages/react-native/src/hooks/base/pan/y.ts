@@ -19,7 +19,7 @@ type StartPos = {
 
 const usePanResponderY = (): PanResponderInstance => {
     const {
-        options: { disabled, animated, onDragStart, onDragMove, onDragEnd },
+        options: { disabled, animated, plugins },
         y: {
             contentType,
             contentRef,
@@ -52,16 +52,18 @@ const usePanResponderY = (): PanResponderInstance => {
                 y,
             };
 
-            onDragStart?.({
-                position: "x",
-                isDisabled: disabled,
-                isAnimated: animated,
-                isDefined: hvTrack && hvThumb,
-                total: total.current,
-                view: view.current,
-                viewOffset: viewOffset.current,
-                pointerOffset: y,
-            });
+            for (const plugin of plugins) {
+                plugin.onDragStart?.({
+                    position: "x",
+                    isDisabled: disabled,
+                    isAnimated: animated,
+                    isDefined: hvTrack && hvThumb,
+                    total: total.current,
+                    view: view.current,
+                    viewOffset: viewOffset.current,
+                    pointerOffset: y,
+                });
+            }
 
             dragRef.current = true;
 
@@ -87,27 +89,34 @@ const usePanResponderY = (): PanResponderInstance => {
             const delta: number = state.dy;
             const ratio: number = (view.current ?? 0) / (total.current ?? 0);
 
-            const result: OnDragMoveResult | undefined = onDragMove?.({
-                position: "y",
-                isDisabled: disabled,
-                isAnimated: animated,
-                isDefined: hvTrack && hvThumb,
-                total: total.current,
-                view: view.current,
-                viewOffset: viewOffset.current,
-                pointerOffset: _startPos.y + state.dx,
-                viewOffsetInit: _startPos.offsetTop,
-                pointerOffsetInit: _startPos.y,
-                delta,
-                ratio,
-            });
+            const scrollTo: number = _startPos.offsetTop + delta / ratio;
+
+            let result: OnDragMoveResult | undefined;
+
+            for (const plugin of plugins) {
+                result = plugin.onDragMove?.({
+                    position: "x",
+                    isDisabled: disabled,
+                    isAnimated: animated,
+                    isDefined: hvTrack && hvThumb,
+                    total: total.current,
+                    view: view.current,
+                    viewOffset: viewOffset.current,
+                    pointerOffset: _startPos.y + state.dy,
+                    viewOffsetInit: _startPos.offsetTop,
+                    pointerOffsetInit: _startPos.y,
+                    delta,
+                    ratio,
+                    scrollTo: result?.scrollTo ?? scrollTo,
+                });
+            }
 
             let y: number;
 
             if (result?.scrollTo) {
                 y = result.scrollTo;
             } else {
-                y = _startPos.offsetTop + delta / ratio;
+                y = scrollTo;
             }
 
             switch (contentType.current) {
@@ -135,18 +144,20 @@ const usePanResponderY = (): PanResponderInstance => {
         ): void => {
             const _startPos: StartPos = startPos.current;
 
-            onDragEnd?.({
-                position: "y",
-                isDisabled: disabled,
-                isAnimated: animated,
-                isDefined: hvTrack && hvThumb,
-                total: total.current,
-                view: view.current,
-                viewOffset: viewOffset.current,
-                pointerOffset: state.y0,
-                viewOffsetInit: _startPos.offsetTop,
-                pointerOffsetInit: _startPos.y,
-            });
+            for (const plugin of plugins) {
+                plugin.onDragEnd?.({
+                    position: "y",
+                    isDisabled: disabled,
+                    isAnimated: animated,
+                    isDefined: hvTrack && hvThumb,
+                    total: total.current,
+                    view: view.current,
+                    viewOffset: viewOffset.current,
+                    pointerOffset: state.y0,
+                    viewOffsetInit: _startPos.offsetTop,
+                    pointerOffsetInit: _startPos.y,
+                });
+            }
 
             dragRef.current = false;
 

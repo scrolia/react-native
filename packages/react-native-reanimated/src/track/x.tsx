@@ -2,7 +2,7 @@
 
 import type { ViewProps } from "react-native";
 
-import { useScrollCore } from "@scrolia/react-native";
+import { getComponentProps, useScrollCore } from "@scrolia/react-native";
 import * as React from "react";
 import { View } from "react-native";
 import Reanimated from "react-native-reanimated";
@@ -18,12 +18,16 @@ type ReanimatedTrackXProps = ViewProps & {
  * **This component requires `react-native-reanimated` to be installed.**
  */
 const ReanimatedTrackX = (props: ReanimatedTrackXProps): React.JSX.Element => {
-    const { children, ...p } = props;
-
     const {
-        options: { disabled, animated },
+        options: { disabled, animated, plugins },
         x: { setHvTrack },
     } = useScrollCore();
+
+    const p: ReanimatedTrackXProps = getComponentProps({
+        name: "trackX",
+        props,
+        plugins,
+    });
 
     React.useEffect((): void => {
         setHvTrack(true);
@@ -40,7 +44,7 @@ const ReanimatedTrackX = (props: ReanimatedTrackXProps): React.JSX.Element => {
                     {...p}
                     ref={p.ref}
                 >
-                    {children}
+                    {p.children}
                 </Reanimated.View>
             </>
         );
@@ -52,7 +56,7 @@ const ReanimatedTrackX = (props: ReanimatedTrackXProps): React.JSX.Element => {
                 {...p}
                 ref={p.ref}
             >
-                {children}
+                {p.children}
             </View>
         </>
     );

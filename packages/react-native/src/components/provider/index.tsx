@@ -59,6 +59,7 @@ const Provider = (props: ProviderProps): React.JSX.Element => {
                         ...p,
                         disabled: p.disabled ?? false,
                         animated: p.animated ?? false,
+                        plugins: p.plugins ?? [],
                     },
                     x: {
                         contentType: contentTypeX,

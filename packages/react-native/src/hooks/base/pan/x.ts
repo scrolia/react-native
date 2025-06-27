@@ -19,7 +19,7 @@ type StartPos = {
 
 const usePanResponderX = (): PanResponderInstance => {
     const {
-        options: { disabled, animated, onDragStart, onDragMove, onDragEnd },
+        options: { disabled, animated, plugins },
         x: {
             contentType,
             contentRef,
@@ -52,16 +52,18 @@ const usePanResponderX = (): PanResponderInstance => {
                 x,
             };
 
-            onDragStart?.({
-                position: "x",
-                isDisabled: disabled,
-                isAnimated: animated,
-                isDefined: hvTrack && hvThumb,
-                total: total.current,
-                view: view.current,
-                viewOffset: viewOffset.current,
-                pointerOffset: x,
-            });
+            for (const plugin of plugins) {
+                plugin.onDragStart?.({
+                    position: "x",
+                    isDisabled: disabled,
+                    isAnimated: animated,
+                    isDefined: hvTrack && hvThumb,
+                    total: total.current,
+                    view: view.current,
+                    viewOffset: viewOffset.current,
+                    pointerOffset: x,
+                });
+            }
 
             dragRef.current = true;
 
@@ -87,27 +89,34 @@ const usePanResponderX = (): PanResponderInstance => {
             const delta: number = state.dx;
             const ratio: number = (view.current ?? 0) / (total.current ?? 0);
 
-            const result: OnDragMoveResult | undefined = onDragMove?.({
-                position: "x",
-                isDisabled: disabled,
-                isAnimated: animated,
-                isDefined: hvTrack && hvThumb,
-                total: total.current,
-                view: view.current,
-                viewOffset: viewOffset.current,
-                pointerOffset: _startPos.x + state.dx,
-                viewOffsetInit: _startPos.offsetLeft,
-                pointerOffsetInit: _startPos.x,
-                delta,
-                ratio,
-            });
+            const scrollTo: number = _startPos.offsetLeft + delta / ratio;
+
+            let result: OnDragMoveResult | undefined;
+
+            for (const plugin of plugins) {
+                result = plugin.onDragMove?.({
+                    position: "x",
+                    isDisabled: disabled,
+                    isAnimated: animated,
+                    isDefined: hvTrack && hvThumb,
+                    total: total.current,
+                    view: view.current,
+                    viewOffset: viewOffset.current,
+                    pointerOffset: _startPos.x + state.dx,
+                    viewOffsetInit: _startPos.offsetLeft,
+                    pointerOffsetInit: _startPos.x,
+                    delta,
+                    ratio,
+                    scrollTo: result?.scrollTo ?? scrollTo,
+                });
+            }
 
             let x: number;
 
             if (result?.scrollTo) {
                 x = result.scrollTo;
             } else {
-                x = _startPos.offsetLeft + delta / ratio;
+                x = scrollTo;
             }
 
             switch (contentType.current) {
@@ -135,18 +144,20 @@ const usePanResponderX = (): PanResponderInstance => {
         ): void => {
             const _startPos: StartPos = startPos.current;
 
-            onDragEnd?.({
-                position: "x",
-                isDisabled: disabled,
-                isAnimated: animated,
-                isDefined: hvTrack && hvThumb,
-                total: total.current,
-                view: view.current,
-                viewOffset: viewOffset.current,
-                pointerOffset: state.x0,
-                viewOffsetInit: _startPos.offsetLeft,
-                pointerOffsetInit: _startPos.x,
-            });
+            for (const plugin of plugins) {
+                plugin.onDragEnd?.({
+                    position: "x",
+                    isDisabled: disabled,
+                    isAnimated: animated,
+                    isDefined: hvTrack && hvThumb,
+                    total: total.current,
+                    view: view.current,
+                    viewOffset: viewOffset.current,
+                    pointerOffset: state.x0,
+                    viewOffsetInit: _startPos.offsetLeft,
+                    pointerOffsetInit: _startPos.x,
+                });
+            }
 
             dragRef.current = false;
 

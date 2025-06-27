@@ -1,15 +1,11 @@
 "use client";
 
-import type { Format } from "ts-vista";
-
 import type { CompleteOptions } from "#/@types/options";
 
 import * as React from "react";
 
 /** Options for the `ScrollCore` context. */
-type ScrollCoreOptions = Format<
-    Pick<CompleteOptions, "disabled" | "animated"> & Partial<CompleteOptions>
->;
+type ScrollCoreOptions = CompleteOptions;
 
 /** Content type. */
 type ContentType = "scrollview" | "flatlist";

@@ -6,6 +6,7 @@ import * as React from "react";
 import { ScrollView } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { getComponentProps } from "#/functions/props";
 import { useContentHandlerX } from "#/hooks/content/x";
 
 /** Props for the `ContentX` component. */
@@ -19,12 +20,16 @@ type ContentXProps = ScrollViewProps & {
  * Use `ListX` for a list of items.
  */
 const ContentX = (props: ContentXProps): React.JSX.Element => {
-    const { children, ...p } = props;
-
     const {
-        options: { disabled },
+        options: { disabled, plugins },
         x: { contentRef, contentType },
     } = useScrollCore();
+
+    const p: ContentXProps = getComponentProps({
+        name: "contentX",
+        props,
+        plugins,
+    });
 
     React.useImperativeHandle(p.ref, (): ScrollView => {
         return contentRef.current as ScrollView;
@@ -40,7 +45,7 @@ const ContentX = (props: ContentXProps): React.JSX.Element => {
 
     const { onLayout, onContentSizeChange, onScroll } = useContentHandlerX({
         disabled,
-        props,
+        props: p,
     });
 
     return (
@@ -58,7 +63,7 @@ const ContentX = (props: ContentXProps): React.JSX.Element => {
                 horizontal={true}
                 scrollEventThrottle={p.scrollEventThrottle ?? 5}
             >
-                {children}
+                {p.children}
             </ScrollView>
         </>
     );

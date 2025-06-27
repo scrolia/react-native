@@ -2,7 +2,11 @@
 
 import type { ViewProps } from "react-native";
 
-import { useScrollCore, useThumbHandlerY } from "@scrolia/react-native";
+import {
+    getComponentProps,
+    useScrollCore,
+    useThumbHandlerY,
+} from "@scrolia/react-native";
 import * as React from "react";
 import { View } from "react-native";
 import Reanimated from "react-native-reanimated";
@@ -18,12 +22,16 @@ type ReanimatedThumbYProps = ViewProps & {
  * **This component requires `react-native-reanimated` to be installed.**
  */
 const ReanimatedThumbY = (props: ReanimatedThumbYProps): React.JSX.Element => {
-    const { children, ...p } = props;
-
     const {
-        options: { animated },
+        options: { animated, plugins },
         y: { setHvThumb, scrollbarLength, scrollbarOffset },
     } = useScrollCore();
+
+    const p: ReanimatedThumbYProps = getComponentProps({
+        name: "thumbY",
+        props,
+        plugins,
+    });
 
     React.useEffect((): void => {
         setHvThumb(true);
@@ -52,7 +60,7 @@ const ReanimatedThumbY = (props: ReanimatedThumbYProps): React.JSX.Element => {
                         },
                     ]}
                 >
-                    {children}
+                    {p.children}
                 </Reanimated.View>
             </>
         );
@@ -76,7 +84,7 @@ const ReanimatedThumbY = (props: ReanimatedThumbYProps): React.JSX.Element => {
                     },
                 ]}
             >
-                {children}
+                {p.children}
             </View>
         </>
     );
