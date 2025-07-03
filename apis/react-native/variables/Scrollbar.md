@@ -6,7 +6,7 @@
 const Scrollbar: object;
 ```
 
-Defined in: [packages/react-native/src/index.ts:14](https://github.com/scrolia/react-native/blob/32a199aff28c90f3c5768e258e4ffc51efe74c0a/packages/react-native/src/index.ts#L14)
+Defined in: [packages/react-native/src/index.ts:13](https://github.com/scrolia/react-native/blob/2fc909e1022f7a957358c4438ab5ad6544482ad5/packages/react-native/src/index.ts#L13)
 
 Scrollbar components.
 
@@ -24,7 +24,7 @@ Container component.
 
 ##### props
 
-`ContainerProps`
+[`ContainerProps`](../type-aliases/ContainerProps.md)
 
 #### Returns
 
@@ -44,7 +44,7 @@ Use `ListX` for a list of items.
 
 ##### props
 
-`ContentXProps`
+[`ContentXProps`](../type-aliases/ContentXProps.md)
 
 #### Returns
 
@@ -64,7 +64,7 @@ Use `ListY` for a list of items.
 
 ##### props
 
-`ContentYProps`
+[`ContentYProps`](../type-aliases/ContentYProps.md)
 
 #### Returns
 
@@ -154,47 +154,13 @@ Whether disable the scrollbar.
 
 By default, it is `false`.
 
-###### onDragEnd?
+###### plugins?
 
-(`options`) => `void`
+`object`[]
 
-The function to be called when the scrollbar is released.
+The plugins for the scrollbar.
 
-###### onDragMove?
-
-(`options`) => 
-  \| `undefined`
-  \| \{
-  `scrollTo?`: `number`;
-\}
-
-The function to be called when the scrollbar is dragged and move.
-
-###### onDragStart?
-
-(`options`) => `void`
-
-The function to be called when the scrollbar is being dragged.
-
-###### onScroll?
-
-(`options`) => 
-  \| `undefined`
-  \| \{
-  `scrollbarOffset?`: `number`;
-\}
-
-The function to be called when the scrollbar is being scrolled.
-
-###### onSetLength?
-
-(`options`) => 
-  \| `undefined`
-  \| \{
-  `scrollbarLength?`: `number`;
-\}
-
-The function to be called when the length of the scrollbar is being set.
+By default, it is `[]`.
 
 #### Returns
 
@@ -212,7 +178,7 @@ Horizontal thumb component.
 
 ##### props
 
-`ThumbXProps`
+[`ThumbXProps`](../type-aliases/ThumbXProps.md)
 
 #### Returns
 
@@ -230,7 +196,7 @@ Vertical thumb component.
 
 ##### props
 
-`ThumbYProps`
+[`ThumbYProps`](../type-aliases/ThumbYProps.md)
 
 #### Returns
 
@@ -248,7 +214,7 @@ Horizontal track component.
 
 ##### props
 
-`TrackXProps`
+[`TrackXProps`](../type-aliases/TrackXProps.md)
 
 #### Returns
 
@@ -266,7 +232,7 @@ Vertical track component.
 
 ##### props
 
-`TrackYProps`
+[`TrackYProps`](../type-aliases/TrackYProps.md)
 
 #### Returns
 

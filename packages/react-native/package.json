@@ -33,6 +33,11 @@
             "import": "./dist/index.mjs",
             "require": "./dist/index.js"
         },
+        "./internal": {
+            "types": "./dist/internal.d.ts",
+            "import": "./dist/internal.mjs",
+            "require": "./dist/internal.js"
+        },
         "./package.json": "./package.json"
     },
     "main": "./dist/index.js",

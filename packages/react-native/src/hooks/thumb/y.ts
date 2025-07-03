@@ -4,7 +4,8 @@ import * as React from "react";
 
 import { usePanResponderY } from "#/hooks/base/pan/y";
 
-const useThumbHandlerY = () => {
+/** Hook for thumb logic. */
+const useThumbYHandler = () => {
     const panResponderRaw: PanResponderInstance = usePanResponderY();
     const panResponder: PanResponderInstance =
         React.useRef(panResponderRaw).current;
@@ -14,7 +15,8 @@ const useThumbHandlerY = () => {
     };
 };
 
-type ThumbHandlerY = ReturnType<typeof useThumbHandlerY>;
+/** Result of the `useThumbYHandler` hook. */
+type ThumbYHandler = ReturnType<typeof useThumbYHandler>;
 
-export type { ThumbHandlerY };
-export { useThumbHandlerY };
+export type { ThumbYHandler };
+export { useThumbYHandler };

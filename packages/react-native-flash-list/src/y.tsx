@@ -4,9 +4,9 @@ import type { FlashListProps } from "@shopify/flash-list";
 
 import {
     getComponentProps,
-    useContentHandlerY,
+    useContentYHandler,
     useScrollCore,
-} from "@scrolia/react-native";
+} from "@scrolia/react-native/internal";
 import { FlashList } from "@shopify/flash-list";
 import * as React from "react";
 
@@ -44,29 +44,27 @@ const FlashListY = <T,>(props: FlashListYProps<T>): React.JSX.Element => {
         contentType,
     ]);
 
-    const { onLayout, onContentSizeChange, onScroll } = useContentHandlerY({
+    const { onLayout, onContentSizeChange, onScroll } = useContentYHandler({
         disabled,
         props,
     });
 
     return (
-        <>
-            <FlashList
-                {...p}
-                ref={contentRef}
-                showsHorizontalScrollIndicator={false}
-                showsVerticalScrollIndicator={
-                    p.showsHorizontalScrollIndicator ?? disabled
-                }
-                onLayout={onLayout}
-                onContentSizeChange={onContentSizeChange}
-                onScroll={onScroll}
-                horizontal={false}
-                scrollEventThrottle={p.scrollEventThrottle ?? 5}
-            >
-                {p.children}
-            </FlashList>
-        </>
+        <FlashList
+            {...p}
+            ref={contentRef}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={
+                p.showsHorizontalScrollIndicator ?? disabled
+            }
+            onLayout={onLayout}
+            onContentSizeChange={onContentSizeChange}
+            onScroll={onScroll}
+            horizontal={false}
+            scrollEventThrottle={p.scrollEventThrottle ?? 5}
+        >
+            {p.children}
+        </FlashList>
     );
 };
 

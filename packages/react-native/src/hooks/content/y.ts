@@ -10,7 +10,8 @@ import { useScrollCore } from "#/contexts/scrollcore";
 import { useSetLengthY } from "#/hooks/base/length/y";
 import { useHandleScrollY } from "#/hooks/base/scroll/y";
 
-const useContentHandlerY = (options?: UseContentHandlerOptions) => {
+/** Content handler. */
+const useContentYHandler = (options?: UseContentHandlerOptions) => {
     const { disabled, props } = options ?? {};
 
     const {
@@ -51,7 +52,8 @@ const useContentHandlerY = (options?: UseContentHandlerOptions) => {
     };
 };
 
-type ContentHandlerY = ReturnType<typeof useContentHandlerY>;
+/** Result of the `useContentYHandler` hook. */
+type ContentYHandler = ReturnType<typeof useContentYHandler>;
 
-export type { ContentHandlerY };
-export { useContentHandlerY };
+export type { ContentYHandler };
+export { useContentYHandler };

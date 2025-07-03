@@ -10,24 +10,22 @@ type ScrollbarProps = Pick<Options, "disabled" | "animated"> & {
 
 const Scrollbar = (p: ScrollbarProps): React.JSX.Element => {
     return (
-        <>
-            <S.Provider
-                disabled={p.disabled}
-                animated={p.animated}
-            >
-                <S.Container style={styles.container}>
-                    <S.ContentX>
-                        <S.ContentY>{p.children}</S.ContentY>
-                    </S.ContentX>
-                    <S.TrackX style={styles.trackX}>
-                        <S.ThumbX style={styles.thumbX} />
-                    </S.TrackX>
-                    <S.TrackY style={styles.trackY}>
-                        <S.ThumbY style={styles.thumbY} />
-                    </S.TrackY>
-                </S.Container>
-            </S.Provider>
-        </>
+        <S.Provider
+            disabled={p.disabled}
+            animated={p.animated}
+        >
+            <S.Container style={styles.container}>
+                <S.ContentX>
+                    <S.ContentY>{p.children}</S.ContentY>
+                </S.ContentX>
+                <S.TrackX style={styles.trackX}>
+                    <S.ThumbX style={styles.thumbX} />
+                </S.TrackX>
+                <S.TrackY style={styles.trackY}>
+                    <S.ThumbY style={styles.thumbY} />
+                </S.TrackY>
+            </S.Container>
+        </S.Provider>
     );
 };
 

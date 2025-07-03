@@ -7,7 +7,7 @@ import { FlatList } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { getComponentProps } from "#/functions/props";
-import { useContentHandlerY } from "#/hooks/content/y";
+import { useContentYHandler } from "#/hooks/content/y";
 
 /** Props for the `ListY` component. */
 type ListYProps<T> = FlatListProps<T> & {
@@ -43,29 +43,27 @@ const ListY = <T,>(props: ListYProps<T>): React.JSX.Element => {
         contentType,
     ]);
 
-    const { onLayout, onContentSizeChange, onScroll } = useContentHandlerY({
+    const { onLayout, onContentSizeChange, onScroll } = useContentYHandler({
         disabled,
         props: p,
     });
 
     return (
-        <>
-            <FlatList
-                {...p}
-                ref={contentRef}
-                showsHorizontalScrollIndicator={false}
-                showsVerticalScrollIndicator={
-                    p.showsHorizontalScrollIndicator ?? disabled
-                }
-                onLayout={onLayout}
-                onContentSizeChange={onContentSizeChange}
-                onScroll={onScroll}
-                horizontal={false}
-                scrollEventThrottle={p.scrollEventThrottle ?? 5}
-            >
-                {p.children}
-            </FlatList>
-        </>
+        <FlatList
+            {...p}
+            ref={contentRef}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={
+                p.showsHorizontalScrollIndicator ?? disabled
+            }
+            onLayout={onLayout}
+            onContentSizeChange={onContentSizeChange}
+            onScroll={onScroll}
+            horizontal={false}
+            scrollEventThrottle={p.scrollEventThrottle ?? 5}
+        >
+            {p.children}
+        </FlatList>
     );
 };
 

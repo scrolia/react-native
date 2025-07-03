@@ -32,30 +32,26 @@ const TrackY = (props: TrackYProps): React.JSX.Element => {
         setHvTrack,
     ]);
 
-    if (disabled) return <></>;
+    if (disabled) return <>{}</>;
 
     if (animated) {
         return (
-            <>
-                <Animated.View
-                    {...p}
-                    ref={p.ref}
-                >
-                    {p.children}
-                </Animated.View>
-            </>
-        );
-    }
-
-    return (
-        <>
-            <View
+            <Animated.View
                 {...p}
                 ref={p.ref}
             >
                 {p.children}
-            </View>
-        </>
+            </Animated.View>
+        );
+    }
+
+    return (
+        <View
+            {...p}
+            ref={p.ref}
+        >
+            {p.children}
+        </View>
     );
 };
 

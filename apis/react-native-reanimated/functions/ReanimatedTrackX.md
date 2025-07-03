@@ -6,7 +6,7 @@
 function ReanimatedTrackX(props): Element;
 ```
 
-Defined in: track/x.tsx:20
+Defined in: [track/x.tsx:23](https://github.com/scrolia/react-native/blob/2fc909e1022f7a957358c4438ab5ad6544482ad5/packages/react-native-reanimated/src/track/x.tsx#L23)
 
 Horizontal track component based on `react-native-reanimated`.
 

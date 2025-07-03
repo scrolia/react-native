@@ -6,6 +6,6 @@
 type ProviderProps = Format<Options & object>;
 ```
 
-Defined in: packages/react-native-core/dist/providers/index.d.ts:5
+Defined in: [packages/react-native/src/components/provider/index.tsx:13](https://github.com/scrolia/react-native/blob/2fc909e1022f7a957358c4438ab5ad6544482ad5/packages/react-native/src/components/provider/index.tsx#L13)
 
 Props for the `Provider` component.

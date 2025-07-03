@@ -5,6 +5,7 @@ import { defineConfig } from "tsdown";
 const options: Options = {
     entry: {
         index: "./src/index.ts",
+        internal: "./src/internal.ts",
     },
     dts: false,
     outDir: "./dist",

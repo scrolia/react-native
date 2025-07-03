@@ -8,12 +8,14 @@ import { useScrollCore } from "#/contexts/scrollcore";
 import { useSetLengthX } from "#/hooks/base/length/x";
 import { useHandleScrollX } from "#/hooks/base/scroll/x";
 
+/** Options for the `useContentHandler` hook. */
 type UseContentHandlerOptions = {
     disabled?: boolean;
     props?: any;
 };
 
-const useContentHandlerX = (options?: UseContentHandlerOptions) => {
+/** Content handler. */
+const useContentXHandler = (options?: UseContentHandlerOptions) => {
     const { disabled, props } = options ?? {};
 
     const {
@@ -54,7 +56,8 @@ const useContentHandlerX = (options?: UseContentHandlerOptions) => {
     };
 };
 
-type ContentHandlerX = ReturnType<typeof useContentHandlerX>;
+/** Result of the `useContentXHandler` hook. */
+type ContentXHandler = ReturnType<typeof useContentXHandler>;
 
-export type { UseContentHandlerOptions, ContentHandlerX };
-export { useContentHandlerX };
+export type { UseContentHandlerOptions, ContentXHandler };
+export { useContentXHandler };

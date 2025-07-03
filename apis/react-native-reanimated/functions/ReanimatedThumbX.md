@@ -6,7 +6,7 @@
 function ReanimatedThumbX(props): Element;
 ```
 
-Defined in: thumb/x.tsx:20
+Defined in: [thumb/x.tsx:24](https://github.com/scrolia/react-native/blob/2fc909e1022f7a957358c4438ab5ad6544482ad5/packages/react-native-reanimated/src/thumb/x.tsx#L24)
 
 Horizontal thumb component based on `react-native-reanimated`.
 

@@ -4,13 +4,7 @@
 
 - Remove default styles
 - Remove `Scrollbar` component
-- Remove `headless` option
-- Remove `noAnimation` option
-- Remove `useNativeDriver` option
-- Remove `setScrollbarLength` option (configurable via `onSetLength`)
-- Remove `x` object options
-- Remove `y` object options
-- Remove `thumbColor` options
+- Remove all previous options
 - All components passed into `Scrollbar` object
 
 ### What's New
@@ -18,11 +12,11 @@
 - React 19 support
 - Headless by default
 - Add `Provider` component
-- Add `onSetLength` function
-- Add `onScroll` function
-- Add `onDragStart` function
-- Add `onDragMove` function
-- Add `onDragEnd` function
+- `Provider` component now accepts the following props:
+    - `disabled`
+    - `page`
+    - `plugins`
+    - `children`
 
 ### Migrating from 0.5.0 to 0.6.0
 

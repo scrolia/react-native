@@ -3,10 +3,11 @@
 import type { Format } from "ts-vista";
 
 import type { Options } from "#/@types/options";
+import type { ContentType } from "#/contexts/scrollcore";
 
 import * as React from "react";
 
-import { type ContentType, ScrollCoreContext } from "#/contexts/scrollcore";
+import { ScrollCoreContext } from "#/contexts/scrollcore";
 
 /** Props for the `Provider` component. */
 type ProviderProps = Format<
@@ -52,56 +53,54 @@ const Provider = (props: ProviderProps): React.JSX.Element => {
     const [isDragY, setDragY] = React.useState<boolean>(false);
 
     return (
-        <>
-            <ScrollCoreContext
-                value={{
-                    options: {
-                        ...p,
-                        disabled: p.disabled ?? false,
-                        animated: p.animated ?? false,
-                        plugins: p.plugins ?? [],
-                    },
-                    x: {
-                        contentType: contentTypeX,
-                        contentRef: contentRefX,
-                        hvTrack: hvTrackX,
-                        setHvTrack: setHvTrackX,
-                        hvThumb: hvThumbX,
-                        setHvThumb: setHvThumbX,
-                        total: totalX,
-                        view: viewX,
-                        viewOffset: viewOffsetX,
-                        scrollbarLength: scrollbarLengthX,
-                        setScrollbarLength: setScrollbarLengthX,
-                        scrollbarOffset: scrollbarOffsetX,
-                        setScrollbarOffset: setScrollbarOffsetX,
-                        dragRef: dragRefX,
-                        isDrag: isDragX,
-                        setIsDrag: setDragX,
-                    },
-                    y: {
-                        contentType: contentTypeY,
-                        contentRef: contentRefY,
-                        hvTrack: hvTrackY,
-                        setHvTrack: setHvTrackY,
-                        hvThumb: hvThumbY,
-                        setHvThumb: setHvThumbY,
-                        total: totalY,
-                        view: viewY,
-                        viewOffset: viewOffsetY,
-                        scrollbarLength: scrollbarLengthY,
-                        setScrollbarLength: setScrollbarLengthY,
-                        scrollbarOffset: scrollbarOffsetY,
-                        setScrollbarOffset: setScrollbarOffsetY,
-                        dragRef: dragRefY,
-                        isDrag: isDragY,
-                        setIsDrag: setDragY,
-                    },
-                }}
-            >
-                {children}
-            </ScrollCoreContext>
-        </>
+        <ScrollCoreContext
+            value={{
+                options: {
+                    ...p,
+                    disabled: p.disabled ?? false,
+                    animated: p.animated ?? false,
+                    plugins: p.plugins ?? [],
+                },
+                x: {
+                    contentType: contentTypeX,
+                    contentRef: contentRefX,
+                    hvTrack: hvTrackX,
+                    setHvTrack: setHvTrackX,
+                    hvThumb: hvThumbX,
+                    setHvThumb: setHvThumbX,
+                    total: totalX,
+                    view: viewX,
+                    viewOffset: viewOffsetX,
+                    scrollbarLength: scrollbarLengthX,
+                    setScrollbarLength: setScrollbarLengthX,
+                    scrollbarOffset: scrollbarOffsetX,
+                    setScrollbarOffset: setScrollbarOffsetX,
+                    dragRef: dragRefX,
+                    isDrag: isDragX,
+                    setIsDrag: setDragX,
+                },
+                y: {
+                    contentType: contentTypeY,
+                    contentRef: contentRefY,
+                    hvTrack: hvTrackY,
+                    setHvTrack: setHvTrackY,
+                    hvThumb: hvThumbY,
+                    setHvThumb: setHvThumbY,
+                    total: totalY,
+                    view: viewY,
+                    viewOffset: viewOffsetY,
+                    scrollbarLength: scrollbarLengthY,
+                    setScrollbarLength: setScrollbarLengthY,
+                    scrollbarOffset: scrollbarOffsetY,
+                    setScrollbarOffset: setScrollbarOffsetY,
+                    dragRef: dragRefY,
+                    isDrag: isDragY,
+                    setIsDrag: setDragY,
+                },
+            }}
+        >
+            {children}
+        </ScrollCoreContext>
     );
 };
 

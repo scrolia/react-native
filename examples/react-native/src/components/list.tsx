@@ -12,22 +12,20 @@ type ListProps<T> = Pick<Options, "disabled" | "animated"> & {
 
 const List = <T,>(p: ListProps<T>): React.JSX.Element => {
     return (
-        <>
-            <S.Provider
-                disabled={p.disabled}
-                animated={p.animated}
-            >
-                <S.Container style={styles.container}>
-                    <S.ListY
-                        data={p.data}
-                        renderItem={p.renderItem}
-                    />
-                    <S.TrackY style={styles.trackY}>
-                        <S.ThumbY style={styles.thumbY} />
-                    </S.TrackY>
-                </S.Container>
-            </S.Provider>
-        </>
+        <S.Provider
+            disabled={p.disabled}
+            animated={p.animated}
+        >
+            <S.Container style={styles.container}>
+                <S.ListY
+                    data={p.data}
+                    renderItem={p.renderItem}
+                />
+                <S.TrackY style={styles.trackY}>
+                    <S.ThumbY style={styles.thumbY} />
+                </S.TrackY>
+            </S.Container>
+        </S.Provider>
     );
 };
 

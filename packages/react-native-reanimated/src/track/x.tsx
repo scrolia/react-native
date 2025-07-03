@@ -2,7 +2,10 @@
 
 import type { ViewProps } from "react-native";
 
-import { getComponentProps, useScrollCore } from "@scrolia/react-native";
+import {
+    getComponentProps,
+    useScrollCore,
+} from "@scrolia/react-native/internal";
 import * as React from "react";
 import { View } from "react-native";
 import Reanimated from "react-native-reanimated";
@@ -35,30 +38,26 @@ const ReanimatedTrackX = (props: ReanimatedTrackXProps): React.JSX.Element => {
         setHvTrack,
     ]);
 
-    if (disabled) return <></>;
+    if (disabled) return <>{}</>;
 
     if (animated) {
         return (
-            <>
-                <Reanimated.View
-                    {...p}
-                    ref={p.ref}
-                >
-                    {p.children}
-                </Reanimated.View>
-            </>
-        );
-    }
-
-    return (
-        <>
-            <View
+            <Reanimated.View
                 {...p}
                 ref={p.ref}
             >
                 {p.children}
-            </View>
-        </>
+            </Reanimated.View>
+        );
+    }
+
+    return (
+        <View
+            {...p}
+            ref={p.ref}
+        >
+            {p.children}
+        </View>
     );
 };
 

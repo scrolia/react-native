@@ -6,7 +6,7 @@
 function FlashListY<T>(props): Element;
 ```
 
-Defined in: y.tsx:24
+Defined in: [y.tsx:23](https://github.com/scrolia/react-native/blob/2fc909e1022f7a957358c4438ab5ad6544482ad5/packages/react-native-flash-list/src/y.tsx#L23)
 
 Vertical list component based on `@shopify/flash-list`.
 

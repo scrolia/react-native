@@ -7,7 +7,7 @@ import { Animated, View } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { getComponentProps } from "#/functions/props";
-import { useThumbHandlerY } from "#/hooks/thumb/y";
+import { useThumbYHandler } from "#/hooks/thumb/y";
 
 /** Props for the `ThumbY` component. */
 type ThumbYProps = ViewProps & {
@@ -33,36 +33,11 @@ const ThumbY = (props: ThumbYProps): React.JSX.Element => {
         setHvThumb,
     ]);
 
-    const { panResponder } = useThumbHandlerY();
+    const { panResponder } = useThumbYHandler();
 
     if (animated) {
         return (
-            <>
-                <Animated.View
-                    {...p}
-                    {...panResponder.panHandlers}
-                    ref={p.ref}
-                    style={[
-                        p.style,
-                        {
-                            height: Number.isNaN(scrollbarLength)
-                                ? 0
-                                : scrollbarLength,
-                            top: Number.isNaN(scrollbarOffset)
-                                ? 0
-                                : scrollbarOffset,
-                        },
-                    ]}
-                >
-                    {p.children}
-                </Animated.View>
-            </>
-        );
-    }
-
-    return (
-        <>
-            <View
+            <Animated.View
                 {...p}
                 {...panResponder.panHandlers}
                 ref={p.ref}
@@ -79,8 +54,25 @@ const ThumbY = (props: ThumbYProps): React.JSX.Element => {
                 ]}
             >
                 {p.children}
-            </View>
-        </>
+            </Animated.View>
+        );
+    }
+
+    return (
+        <View
+            {...p}
+            {...panResponder.panHandlers}
+            ref={p.ref}
+            style={[
+                p.style,
+                {
+                    height: Number.isNaN(scrollbarLength) ? 0 : scrollbarLength,
+                    top: Number.isNaN(scrollbarOffset) ? 0 : scrollbarOffset,
+                },
+            ]}
+        >
+            {p.children}
+        </View>
     );
 };
 

@@ -18,24 +18,22 @@ const Scrollbar = (props: ScrollbarProps): React.JSX.Element => {
     const { children, ...p } = props;
 
     return (
-        <>
-            <S.Provider
-                disabled={p.disabled}
-                animated={true}
-            >
-                <S.Container style={styles.container}>
-                    <S.ContentX>
-                        <S.ContentY>{children}</S.ContentY>
-                    </S.ContentX>
-                    <ReanimatedTrackX style={styles.trackX}>
-                        <ReanimatedThumbX style={styles.thumbX} />
-                    </ReanimatedTrackX>
-                    <ReanimatedTrackY style={styles.trackY}>
-                        <ReanimatedThumbY style={styles.thumbY} />
-                    </ReanimatedTrackY>
-                </S.Container>
-            </S.Provider>
-        </>
+        <S.Provider
+            disabled={p.disabled}
+            animated={true}
+        >
+            <S.Container style={styles.container}>
+                <S.ContentX>
+                    <S.ContentY>{children}</S.ContentY>
+                </S.ContentX>
+                <ReanimatedTrackX style={styles.trackX}>
+                    <ReanimatedThumbX style={styles.thumbX} />
+                </ReanimatedTrackX>
+                <ReanimatedTrackY style={styles.trackY}>
+                    <ReanimatedThumbY style={styles.thumbY} />
+                </ReanimatedTrackY>
+            </S.Container>
+        </S.Provider>
     );
 };
 
