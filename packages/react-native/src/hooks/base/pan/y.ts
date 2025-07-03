@@ -6,16 +6,12 @@ import type {
 } from "react-native";
 
 import type { OnDragMoveResult } from "#/@types/options";
+import type { StartPos } from "#/hooks/base/pan/x";
 
 import * as React from "react";
 import { PanResponder, type ScrollView } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
-
-type StartPos = {
-    offsetTop: number;
-    y: number;
-};
 
 const usePanResponderY = (): PanResponderInstance => {
     const {
@@ -34,8 +30,8 @@ const usePanResponderY = (): PanResponderInstance => {
     } = useScrollCore();
 
     const startPos = React.useRef<StartPos>({
-        offsetTop: 0,
-        y: 0,
+        viewOffset: 0,
+        pointerOffset: 0,
     });
 
     return PanResponder.create({
@@ -45,23 +41,23 @@ const usePanResponderY = (): PanResponderInstance => {
             _: GestureResponderEvent,
             state: PanResponderGestureState,
         ): void => {
-            const y: number = state.x0;
+            const pointerOffset: number = state.x0;
 
             startPos.current = {
-                offsetTop: viewOffset.current ?? 0,
-                y,
+                viewOffset: viewOffset.current ?? 0,
+                pointerOffset,
             };
 
             for (const plugin of plugins) {
                 plugin.onDragStart?.({
-                    position: "x",
+                    position: "y",
                     isDisabled: disabled,
                     isAnimated: animated,
                     isDefined: hvTrack && hvThumb,
                     total: total.current,
                     view: view.current,
                     viewOffset: viewOffset.current,
-                    pointerOffset: y,
+                    pointerOffset,
                 });
             }
 
@@ -89,22 +85,22 @@ const usePanResponderY = (): PanResponderInstance => {
             const delta: number = state.dy;
             const ratio: number = (view.current ?? 0) / (total.current ?? 0);
 
-            const scrollTo: number = _startPos.offsetTop + delta / ratio;
+            const scrollTo: number = _startPos.viewOffset + delta / ratio;
 
             let result: OnDragMoveResult | undefined;
 
             for (const plugin of plugins) {
                 result = plugin.onDragMove?.({
-                    position: "x",
+                    position: "y",
                     isDisabled: disabled,
                     isAnimated: animated,
                     isDefined: hvTrack && hvThumb,
                     total: total.current,
                     view: view.current,
                     viewOffset: viewOffset.current,
-                    pointerOffset: _startPos.y + state.dy,
-                    viewOffsetInit: _startPos.offsetTop,
-                    pointerOffsetInit: _startPos.y,
+                    pointerOffset: _startPos.pointerOffset + state.dy,
+                    viewOffsetInit: _startPos.viewOffset,
+                    pointerOffsetInit: _startPos.pointerOffset,
                     delta,
                     ratio,
                     scrollTo: result?.scrollTo ?? scrollTo,
@@ -154,8 +150,8 @@ const usePanResponderY = (): PanResponderInstance => {
                     view: view.current,
                     viewOffset: viewOffset.current,
                     pointerOffset: state.y0,
-                    viewOffsetInit: _startPos.offsetTop,
-                    pointerOffsetInit: _startPos.y,
+                    viewOffsetInit: _startPos.viewOffset,
+                    pointerOffsetInit: _startPos.pointerOffset,
                 });
             }
 

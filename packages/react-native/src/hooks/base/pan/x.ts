@@ -13,8 +13,8 @@ import { PanResponder, type ScrollView } from "react-native";
 import { useScrollCore } from "#/contexts/scrollcore";
 
 type StartPos = {
-    offsetLeft: number;
-    x: number;
+    viewOffset: number;
+    pointerOffset: number;
 };
 
 const usePanResponderX = (): PanResponderInstance => {
@@ -34,8 +34,8 @@ const usePanResponderX = (): PanResponderInstance => {
     } = useScrollCore();
 
     const startPos = React.useRef<StartPos>({
-        offsetLeft: 0,
-        x: 0,
+        viewOffset: 0,
+        pointerOffset: 0,
     });
 
     return PanResponder.create({
@@ -45,11 +45,11 @@ const usePanResponderX = (): PanResponderInstance => {
             _: GestureResponderEvent,
             state: PanResponderGestureState,
         ): void => {
-            const x: number = state.x0;
+            const pointerOffset: number = state.x0;
 
             startPos.current = {
-                offsetLeft: viewOffset.current ?? 0,
-                x,
+                viewOffset: viewOffset.current ?? 0,
+                pointerOffset,
             };
 
             for (const plugin of plugins) {
@@ -61,7 +61,7 @@ const usePanResponderX = (): PanResponderInstance => {
                     total: total.current,
                     view: view.current,
                     viewOffset: viewOffset.current,
-                    pointerOffset: x,
+                    pointerOffset,
                 });
             }
 
@@ -89,7 +89,7 @@ const usePanResponderX = (): PanResponderInstance => {
             const delta: number = state.dx;
             const ratio: number = (view.current ?? 0) / (total.current ?? 0);
 
-            const scrollTo: number = _startPos.offsetLeft + delta / ratio;
+            const scrollTo: number = _startPos.viewOffset + delta / ratio;
 
             let result: OnDragMoveResult | undefined;
 
@@ -102,9 +102,9 @@ const usePanResponderX = (): PanResponderInstance => {
                     total: total.current,
                     view: view.current,
                     viewOffset: viewOffset.current,
-                    pointerOffset: _startPos.x + state.dx,
-                    viewOffsetInit: _startPos.offsetLeft,
-                    pointerOffsetInit: _startPos.x,
+                    pointerOffset: _startPos.pointerOffset + state.dx,
+                    viewOffsetInit: _startPos.viewOffset,
+                    pointerOffsetInit: _startPos.pointerOffset,
                     delta,
                     ratio,
                     scrollTo: result?.scrollTo ?? scrollTo,
@@ -154,8 +154,8 @@ const usePanResponderX = (): PanResponderInstance => {
                     view: view.current,
                     viewOffset: viewOffset.current,
                     pointerOffset: state.x0,
-                    viewOffsetInit: _startPos.offsetLeft,
-                    pointerOffsetInit: _startPos.x,
+                    viewOffsetInit: _startPos.viewOffset,
+                    pointerOffsetInit: _startPos.pointerOffset,
                 });
             }
 
@@ -166,4 +166,5 @@ const usePanResponderX = (): PanResponderInstance => {
     });
 };
 
+export type { StartPos };
 export { usePanResponderX };
