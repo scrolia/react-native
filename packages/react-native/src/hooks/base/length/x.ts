@@ -1,6 +1,7 @@
 import type { OnSetLengthResult } from "#/@types/options";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { tryPlugin } from "#/functions/plugin";
 
 const pos = "x" as const;
 
@@ -28,18 +29,21 @@ const useSetLengthX = () => {
         let result: OnSetLengthResult | undefined;
 
         for (const plugin of plugins) {
-            result = plugin.onSetLength?.({
-                position: pos,
-                isDisabled: disabled,
-                isAnimated: animated,
-                isDefined: hvTrack && hvThumb,
-                total: _total,
-                view: _view,
-                viewOffset: _viewOffset,
-                scrollbarLengthPrev: scrollbarLength,
-                scrollbarLengthNext:
-                    result?.scrollbarLength ?? scrollbarLengthNext,
-            });
+            if (!plugin.onSetLength) continue;
+
+            result =
+                tryPlugin(plugin, plugin.onSetLength, {
+                    position: pos,
+                    isDisabled: disabled,
+                    isAnimated: animated,
+                    isDefined: hvTrack && hvThumb,
+                    total: _total,
+                    view: _view,
+                    viewOffset: _viewOffset,
+                    scrollbarLengthPrev: scrollbarLength,
+                    scrollbarLengthNext:
+                        result?.scrollbarLength ?? scrollbarLengthNext,
+                }) ?? result;
         }
 
         let length: number;

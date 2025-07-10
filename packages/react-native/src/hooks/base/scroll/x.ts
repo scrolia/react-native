@@ -3,6 +3,7 @@ import type { NativeScrollEvent, NativeSyntheticEvent } from "react-native";
 import type { OnScrollResult } from "#/@types/options";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { tryPlugin } from "#/functions/plugin";
 
 const pos = "x" as const;
 
@@ -29,17 +30,20 @@ const useHandleScrollX = () => {
         let result: OnScrollResult | undefined;
 
         for (const plugin of plugins) {
-            result = plugin.onScroll?.({
-                position: pos,
-                isDisabled: disabled,
-                isAnimated: animated,
-                isDefined: hvTrack && hvThumb,
-                total: total.current,
-                view: view.current,
-                viewOffset: viewOffset.current,
-                scrollbarOffsetPrev: scrollbarOffset,
-                scrollbarOffsetNext,
-            });
+            if (!plugin.onScroll) continue;
+
+            result =
+                tryPlugin(plugin, plugin.onScroll, {
+                    position: pos,
+                    isDisabled: disabled,
+                    isAnimated: animated,
+                    isDefined: hvTrack && hvThumb,
+                    total: total.current,
+                    view: view.current,
+                    viewOffset: viewOffset.current,
+                    scrollbarOffsetPrev: scrollbarOffset,
+                    scrollbarOffsetNext,
+                }) ?? result;
         }
 
         let offset: number;

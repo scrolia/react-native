@@ -12,6 +12,7 @@ import * as React from "react";
 import { PanResponder, type ScrollView } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
+import { tryPlugin } from "#/functions/plugin";
 
 const usePanResponderY = (): PanResponderInstance => {
     const {
@@ -49,7 +50,9 @@ const usePanResponderY = (): PanResponderInstance => {
             };
 
             for (const plugin of plugins) {
-                plugin.onDragStart?.({
+                if (!plugin.onDragStart) continue;
+
+                tryPlugin(plugin, plugin.onDragStart, {
                     position: "y",
                     isDisabled: disabled,
                     isAnimated: animated,
@@ -90,21 +93,24 @@ const usePanResponderY = (): PanResponderInstance => {
             let result: OnDragMoveResult | undefined;
 
             for (const plugin of plugins) {
-                result = plugin.onDragMove?.({
-                    position: "y",
-                    isDisabled: disabled,
-                    isAnimated: animated,
-                    isDefined: hvTrack && hvThumb,
-                    total: total.current,
-                    view: view.current,
-                    viewOffset: viewOffset.current,
-                    pointerOffset: _startPos.pointerOffset + state.dy,
-                    viewOffsetInit: _startPos.viewOffset,
-                    pointerOffsetInit: _startPos.pointerOffset,
-                    delta,
-                    ratio,
-                    scrollTo: result?.scrollTo ?? scrollTo,
-                });
+                if (!plugin.onDragMove) continue;
+
+                result =
+                    tryPlugin(plugin, plugin.onDragMove, {
+                        position: "y",
+                        isDisabled: disabled,
+                        isAnimated: animated,
+                        isDefined: hvTrack && hvThumb,
+                        total: total.current,
+                        view: view.current,
+                        viewOffset: viewOffset.current,
+                        pointerOffset: _startPos.pointerOffset + state.dy,
+                        viewOffsetInit: _startPos.viewOffset,
+                        pointerOffsetInit: _startPos.pointerOffset,
+                        delta,
+                        ratio,
+                        scrollTo: result?.scrollTo ?? scrollTo,
+                    }) ?? result;
             }
 
             let y: number;
@@ -141,7 +147,9 @@ const usePanResponderY = (): PanResponderInstance => {
             const _startPos: StartPos = startPos.current;
 
             for (const plugin of plugins) {
-                plugin.onDragEnd?.({
+                if (!plugin.onDragEnd) continue;
+
+                tryPlugin(plugin, plugin.onDragEnd, {
                     position: "y",
                     isDisabled: disabled,
                     isAnimated: animated,

@@ -1,5 +1,7 @@
 import type { Plugin } from "#/@types/options";
 
+import { tryPlugin } from "#/functions/plugin";
+
 /** The name of the component. */
 type GetComponentPropsName =
     | "container"
@@ -32,7 +34,7 @@ const getComponentProps = <P extends object>(
 
         result = {
             ...result,
-            ...plugin.props[name](result as any),
+            ...tryPlugin(plugin, plugin.props[name] as any, result as any),
         };
     }
 
