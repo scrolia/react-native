@@ -33,10 +33,35 @@
             "import": "./dist/index.mjs",
             "require": "./dist/index.js"
         },
-        "./internal": {
-            "types": "./dist/internal.d.ts",
-            "import": "./dist/internal.mjs",
-            "require": "./dist/internal.js"
+        "./contexts/scrollcore": {
+            "types": "./dist/contexts/scrollcore.d.ts",
+            "import": "./dist/contexts/scrollcore.mjs",
+            "require": "./dist/contexts/scrollcore.js"
+        },
+        "./functions/props": {
+            "types": "./dist/functions/props.d.ts",
+            "import": "./dist/functions/props.mjs",
+            "require": "./dist/functions/props.js"
+        },
+        "./hooks/content/x": {
+            "types": "./dist/hooks/content/x.d.ts",
+            "import": "./dist/hooks/content/x.mjs",
+            "require": "./dist/hooks/content/x.js"
+        },
+        "./hooks/content/y": {
+            "types": "./dist/hooks/content/y.d.ts",
+            "import": "./dist/hooks/content/y.mjs",
+            "require": "./dist/hooks/content/y.js"
+        },
+        "./hooks/thumb/x": {
+            "types": "./dist/hooks/thumb/x.d.ts",
+            "import": "./dist/hooks/thumb/x.mjs",
+            "require": "./dist/hooks/thumb/x.js"
+        },
+        "./hooks/thumb/y": {
+            "types": "./dist/hooks/thumb/y.d.ts",
+            "import": "./dist/hooks/thumb/y.mjs",
+            "require": "./dist/hooks/thumb/y.js"
         },
         "./package.json": "./package.json"
     },

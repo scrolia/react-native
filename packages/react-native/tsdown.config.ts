@@ -4,8 +4,15 @@ import { defineConfig } from "tsdown";
 
 const options: Options = {
     entry: {
+        // public
         index: "./src/index.ts",
-        internal: "./src/internal.ts",
+        // internal
+        "contexts/scrollcore": "./src/contexts/scrollcore.ts",
+        "functions/props": "./src/functions/props.ts",
+        "hooks/content/x": "./src/hooks/content/x.ts",
+        "hooks/content/y": "./src/hooks/content/y.ts",
+        "hooks/thumb/x": "./src/hooks/thumb/x.ts",
+        "hooks/thumb/y": "./src/hooks/thumb/y.ts",
     },
     dts: false,
     outDir: "./dist",

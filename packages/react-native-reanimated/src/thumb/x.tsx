@@ -2,11 +2,9 @@
 
 import type { ViewProps } from "react-native";
 
-import {
-    getComponentProps,
-    useScrollCore,
-    useThumbXHandler,
-} from "@scrolia/react-native/internal";
+import { useScrollCore } from "@scrolia/react-native/contexts/scrollcore";
+import { getComponentProps } from "@scrolia/react-native/functions/props";
+import { useThumbXHandler } from "@scrolia/react-native/hooks/thumb/x";
 import * as React from "react";
 import { View } from "react-native";
 import Reanimated from "react-native-reanimated";

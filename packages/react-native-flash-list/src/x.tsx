@@ -2,11 +2,9 @@
 
 import type { FlashListProps } from "@shopify/flash-list";
 
-import {
-    getComponentProps,
-    useContentXHandler,
-    useScrollCore,
-} from "@scrolia/react-native/internal";
+import { useScrollCore } from "@scrolia/react-native/contexts/scrollcore";
+import { getComponentProps } from "@scrolia/react-native/functions/props";
+import { useContentXHandler } from "@scrolia/react-native/hooks/content/x";
 import { FlashList } from "@shopify/flash-list";
 import * as React from "react";
 
