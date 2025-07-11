@@ -6,7 +6,7 @@
 type ReanimatedThumbXProps = ViewProps & object;
 ```
 
-Defined in: [thumb/x.tsx:15](https://github.com/scrolia/react-native/blob/2fc909e1022f7a957358c4438ab5ad6544482ad5/packages/react-native-reanimated/src/thumb/x.tsx#L15)
+Defined in: [thumb/x.tsx:13](https://github.com/scrolia/react-native/blob/107e0a978a4d75b58537d45c6e53de02c37b518c/packages/react-native-reanimated/src/thumb/x.tsx#L13)
 
 Props for the `ReanimatedThumbX` component.
 

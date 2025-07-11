@@ -6,7 +6,7 @@
 function FlashListX<T>(props): Element;
 ```
 
-Defined in: [x.tsx:23](https://github.com/scrolia/react-native/blob/2fc909e1022f7a957358c4438ab5ad6544482ad5/packages/react-native-flash-list/src/x.tsx#L23)
+Defined in: [x.tsx:21](https://github.com/scrolia/react-native/blob/107e0a978a4d75b58537d45c6e53de02c37b518c/packages/react-native-flash-list/src/x.tsx#L21)
 
 Horizontal list component based on `@shopify/flash-list`.
 
