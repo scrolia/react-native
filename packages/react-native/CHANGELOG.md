@@ -3,7 +3,7 @@
 ### Breaking Changes
 
 - Remove default styles
-- Remove `Scrollbar` component
+- Remove Original `Scrollbar` component
 - Remove all previous options
 - All components passed into `Scrollbar` object
 
