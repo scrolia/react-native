@@ -25,9 +25,6 @@ type ScrollCoreStates = {
     setScrollbarLength: React.Dispatch<React.SetStateAction<number>>;
     scrollbarOffset: number;
     setScrollbarOffset: React.Dispatch<React.SetStateAction<number>>;
-    dragRef: React.RefObject<boolean>; // logic
-    isDrag: boolean; // UI
-    setIsDrag: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 /** Core for internal logic. */

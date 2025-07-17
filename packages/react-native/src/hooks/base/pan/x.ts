@@ -29,10 +29,10 @@ const usePanResponderX = (): PanResponderInstance => {
             total,
             view,
             viewOffset,
-            dragRef,
-            setIsDrag,
         },
     } = useScrollCore();
+
+    const isDrag = React.useRef<boolean>(false);
 
     const startPos = React.useRef<StartPos>({
         viewOffset: 0,
@@ -68,20 +68,13 @@ const usePanResponderX = (): PanResponderInstance => {
                 });
             }
 
-            dragRef.current = true;
-
-            setIsDrag(true);
+            isDrag.current = true;
         },
         onPanResponderMove: (
             _: GestureResponderEvent,
             state: PanResponderGestureState,
         ): void => {
-            if (
-                !dragRef ||
-                !dragRef.current ||
-                !contentRef ||
-                !contentRef.current
-            ) {
+            if (!isDrag.current || !contentRef.current) {
                 return void 0;
             }
 
@@ -167,9 +160,7 @@ const usePanResponderX = (): PanResponderInstance => {
                 });
             }
 
-            dragRef.current = false;
-
-            setIsDrag(false);
+            isDrag.current = false;
         },
     });
 };

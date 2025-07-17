@@ -46,12 +46,6 @@ const Provider = (props: ProviderProps): React.JSX.Element => {
     const [scrollbarOffsetX, setScrollbarOffsetX] = React.useState<number>(0);
     const [scrollbarOffsetY, setScrollbarOffsetY] = React.useState<number>(0);
 
-    const dragRefX = React.useRef<boolean>(false);
-    const dragRefY = React.useRef<boolean>(false);
-
-    const [isDragX, setDragX] = React.useState<boolean>(false);
-    const [isDragY, setDragY] = React.useState<boolean>(false);
-
     return (
         <ScrollCoreContext
             value={{
@@ -75,9 +69,6 @@ const Provider = (props: ProviderProps): React.JSX.Element => {
                     setScrollbarLength: setScrollbarLengthX,
                     scrollbarOffset: scrollbarOffsetX,
                     setScrollbarOffset: setScrollbarOffsetX,
-                    dragRef: dragRefX,
-                    isDrag: isDragX,
-                    setIsDrag: setDragX,
                 },
                 y: {
                     contentType: contentTypeY,
@@ -93,9 +84,6 @@ const Provider = (props: ProviderProps): React.JSX.Element => {
                     setScrollbarLength: setScrollbarLengthY,
                     scrollbarOffset: scrollbarOffsetY,
                     setScrollbarOffset: setScrollbarOffsetY,
-                    dragRef: dragRefY,
-                    isDrag: isDragY,
-                    setIsDrag: setDragY,
                 },
             }}
         >
