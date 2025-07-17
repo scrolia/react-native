@@ -25,8 +25,8 @@
     },
     "license": "MIT",
     "author": {
-        "name": "Alpheus Tang",
-        "url": "https://alpheus.day"
+        "name": "Alpheus",
+        "email": "contact@alphe.us"
     },
     "exports": {
         ".": {
