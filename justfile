@@ -70,7 +70,7 @@ example-common-start:
     cd ./{{example_common}} && pnpm run start
 
 # Start flashlist example in development mode
-example-flastlist:
+example-flashlist:
     cd ./{{example_flashlist}} && pnpm run dev
 
 # Build flashlist example
