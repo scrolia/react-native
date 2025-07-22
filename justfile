@@ -57,6 +57,42 @@ api:
     cd ./{{flashlist}} && ../../{{typedoc}}
     cd ./{{reanimated}} && ../../{{typedoc}}
 
+# Start common example in development mode
+example-common:
+    cd ./{{example_common}} && pnpm run dev
+
+# Build common example
+example-common-build:
+    cd ./{{example_common}} && pnpm run build
+
+# Start common example in production mode
+example-common-start:
+    cd ./{{example_common}} && pnpm run start
+
+# Start flashlist example in development mode
+example-flastlist:
+    cd ./{{example_flashlist}} && pnpm run dev
+
+# Build flashlist example
+example-flashlist-build:
+    cd ./{{example_flashlist}} && pnpm run build
+
+# Start flashlist example in production mode
+example-flashlist-start:
+    cd ./{{example_flashlist}} && pnpm run start
+
+# Start reanimated example in development mode
+example-reanimated:
+    cd ./{{example_reanimated}} && pnpm run dev
+
+# Build reanimated example
+example-reanimated-build:
+    cd ./{{example_reanimated}} && pnpm run build
+
+# Start reanimated example in production mode
+example-reanimated-start:
+    cd ./{{example_reanimated}} && pnpm run start
+
 # Clean builds
 clean:
     rm -rf ./{{example_common}}/dist

@@ -43,9 +43,11 @@ const usePanResponderX = (): PanResponderInstance => {
         onStartShouldSetPanResponder: (): boolean => true,
         onMoveShouldSetPanResponder: (): boolean => true,
         onPanResponderGrant: (
-            _: GestureResponderEvent,
+            e: GestureResponderEvent,
             state: PanResponderGestureState,
         ): void => {
+            e.preventDefault();
+
             const pointerOffset: number = state.x0;
 
             startPos.current = {
