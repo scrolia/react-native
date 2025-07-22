@@ -43,7 +43,7 @@ const usePanResponderY = (): PanResponderInstance => {
             state: PanResponderGestureState,
         ): void => {
             e.preventDefault();
-            
+
             const pointerOffset: number = state.x0;
 
             startPos.current = {

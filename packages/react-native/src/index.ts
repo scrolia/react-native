@@ -33,6 +33,9 @@ export type {
     OnSetLengthOptions,
     OnSetLengthResult,
     Options,
+    Plugin,
+    PluginProps,
+    PluginPropsFunction,
     Position,
 } from "#/@types/options";
 export type { ContainerProps } from "#/components/container";
