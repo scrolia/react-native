@@ -35,7 +35,7 @@ const usePanResponderY = (): PanResponderInstance => {
         pointerOffset: 0,
     });
 
-    return PanResponder.create({
+    const responder: PanResponderInstance = PanResponder.create({
         onStartShouldSetPanResponder: (): boolean => true,
         onMoveShouldSetPanResponder: (): boolean => true,
         onPanResponderGrant: (
@@ -161,6 +161,8 @@ const usePanResponderY = (): PanResponderInstance => {
             isDrag.current = false;
         },
     });
+
+    return React.useRef(responder).current;
 };
 
 export { usePanResponderY };
