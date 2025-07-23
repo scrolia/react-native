@@ -21,7 +21,7 @@ type ReanimatedTrackYProps = ViewProps & {
 const ReanimatedTrackY = (props: ReanimatedTrackYProps): React.JSX.Element => {
     const {
         options: { disabled, animated, plugins },
-        x: { setHvTrack },
+        y: { setHvTrack },
     } = useScrollCore();
 
     const p: ReanimatedTrackYProps = getComponentProps({

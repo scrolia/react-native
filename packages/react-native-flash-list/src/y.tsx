@@ -21,7 +21,7 @@ type FlashListYProps<T> = FlashListProps<T> & {
 const FlashListY = <T,>(props: FlashListYProps<T>): React.JSX.Element => {
     const {
         options: { disabled, plugins },
-        x: { contentType, contentRef },
+        y: { contentType, contentRef },
     } = useScrollCore();
 
     const p: FlashListYProps<T> = getComponentProps({
