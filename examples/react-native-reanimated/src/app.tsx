@@ -1,9 +1,36 @@
 import type * as React from "react";
+import type { ListRenderItemInfo } from "react-native";
 
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 
+import { List } from "./components/list";
 import { Scrollbar } from "./components/scrollbar";
+
+type Item = {
+    id: number;
+    name: string;
+};
+
+const data: Item[] = Array.from(
+    {
+        length: 100,
+    },
+    (_, i) => ({
+        id: i + 1,
+        name: `Item ${i + 1}`,
+    }),
+);
+
+const ItemComponent = ({
+    item,
+}: ListRenderItemInfo<Item>): React.JSX.Element => {
+    return (
+        <View style={styles.item}>
+            <Text style={styles.text}>{item.name}</Text>
+        </View>
+    );
+};
 
 export default (): React.JSX.Element => {
     return (
@@ -29,6 +56,12 @@ export default (): React.JSX.Element => {
                         <Text>Horizontal Block</Text>
                     </View>
                 </Scrollbar>
+            </View>
+            <View style={styles.block}>
+                <List
+                    data={data}
+                    renderItem={ItemComponent}
+                />
             </View>
         </View>
     );
@@ -58,5 +91,17 @@ const styles = StyleSheet.create({
     subHBlock: {
         width: 600,
         height: 200 - 2,
+    },
+    item: {
+        height: 100,
+        justifyContent: "center",
+        alignItems: "center",
+        borderColor: "black",
+        borderWidth: 1,
+        margin: 16,
+    },
+    text: {
+        fontSize: 32,
+        fontWeight: "bold",
     },
 });
