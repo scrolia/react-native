@@ -55,7 +55,7 @@ const usePanResponderY = (): PanResponderInstance => {
                 if (!plugin.onDragStart) continue;
 
                 tryPlugin(plugin, plugin.onDragStart, {
-                    position: "y",
+                    axis: "y",
                     isDisabled: disabled,
                     isAnimated: animated,
                     isDefined: hvTrack && hvThumb,
@@ -92,7 +92,7 @@ const usePanResponderY = (): PanResponderInstance => {
 
                 result =
                     tryPlugin(plugin, plugin.onDragMove, {
-                        position: "y",
+                        axis: "y",
                         isDisabled: disabled,
                         isAnimated: animated,
                         isDefined: hvTrack && hvThumb,
@@ -145,7 +145,7 @@ const usePanResponderY = (): PanResponderInstance => {
                 if (!plugin.onDragEnd) continue;
 
                 tryPlugin(plugin, plugin.onDragEnd, {
-                    position: "y",
+                    axis: "y",
                     isDisabled: disabled,
                     isAnimated: animated,
                     isDefined: hvTrack && hvThumb,

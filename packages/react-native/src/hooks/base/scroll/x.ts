@@ -34,7 +34,7 @@ const useHandleScrollX = () => {
 
             result =
                 tryPlugin(plugin, plugin.onScroll, {
-                    position: pos,
+                    axis: pos,
                     isDisabled: disabled,
                     isAnimated: animated,
                     isDefined: hvTrack && hvThumb,

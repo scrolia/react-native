@@ -10,12 +10,12 @@ import type { ThumbYProps } from "#/components/thumb/y";
 import type { TrackXProps } from "#/components/track/x";
 import type { TrackYProps } from "#/components/track/y";
 
-/** The position of the scrollbar. */
-type Position = "x" | "y";
+/** The axis of the scrollbar. */
+type Axis = "x" | "y";
 
 type FunctionOptions = {
-    /** Whether it is a scrollbar for X axis or Y axis. */
-    position: Position;
+    /** The axis of the scrollbar. */
+    axis: Axis;
     /** Whether the scrollbar is disabled. */
     isDisabled: boolean;
     /** Whether the scrollbar tracks and thumbs are animated. */
@@ -187,7 +187,7 @@ type CompleteOptions = {
 type Options = Format<Partial<CompleteOptions>>;
 
 export type {
-    Position,
+    Axis,
     OnSetLengthOptions,
     OnSetLengthResult,
     OnScrollOptions,

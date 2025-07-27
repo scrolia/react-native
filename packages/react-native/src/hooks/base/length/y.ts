@@ -33,7 +33,7 @@ const useSetLengthY = () => {
 
             result =
                 tryPlugin(plugin, plugin.onSetLength, {
-                    position: pos,
+                    axis: pos,
                     isDisabled: disabled,
                     isAnimated: animated,
                     isDefined: hvTrack && hvThumb,
