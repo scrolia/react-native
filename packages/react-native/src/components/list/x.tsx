@@ -7,7 +7,7 @@ import { FlatList } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { getComponentProps } from "#/functions/props";
-import { useContentXHandler } from "#/hooks/content/x";
+import { useContentXHandler } from "#/hooks/content";
 
 /** Props for the `ListX` component. */
 type ListXProps<T> = FlatListProps<T> & {
@@ -44,7 +44,6 @@ const ListX = <T,>(props: ListXProps<T>): React.JSX.Element => {
     ]);
 
     const { onLayout, onContentSizeChange, onScroll } = useContentXHandler({
-        disabled,
         props: p,
     });
 

@@ -7,7 +7,7 @@ import { Animated, View } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { getComponentProps } from "#/functions/props";
-import { useThumbYHandler } from "#/hooks/thumb/y";
+import { useThumbYHandler } from "#/hooks/thumb";
 
 /** Props for the `ThumbY` component. */
 type ThumbYProps = ViewProps & {

@@ -7,7 +7,7 @@ import { ScrollView } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { getComponentProps } from "#/functions/props";
-import { useContentXHandler } from "#/hooks/content/x";
+import { useContentXHandler } from "#/hooks/content";
 
 /** Props for the `ContentX` component. */
 type ContentXProps = ScrollViewProps & {
@@ -44,7 +44,6 @@ const ContentX = (props: ContentXProps): React.JSX.Element => {
     ]);
 
     const { onLayout, onContentSizeChange, onScroll } = useContentXHandler({
-        disabled,
         props: p,
     });
 

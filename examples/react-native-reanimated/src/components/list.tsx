@@ -9,7 +9,7 @@ import {
 } from "@scrolia/react-native-reanimated";
 import { StyleSheet } from "react-native";
 
-type ListProps<T> = Pick<Options, "disabled" | "animated"> & {
+type ListProps<T> = Pick<Options, "disabled"> & {
     data: ArrayLike<T>;
     renderItem: ListRenderItem<T>;
 };
@@ -18,7 +18,7 @@ const List = <T,>(p: ListProps<T>): React.JSX.Element => {
     return (
         <S.Provider
             disabled={p.disabled}
-            animated={p.animated}
+            animated
         >
             <S.Container style={styles.container}>
                 <S.ListY

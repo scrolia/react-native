@@ -7,7 +7,7 @@ import { ScrollView } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { getComponentProps } from "#/functions/props";
-import { useContentYHandler } from "#/hooks/content/y";
+import { useContentYHandler } from "#/hooks/content";
 
 /** Props for the `ContentY` component. */
 type ContentYProps = ScrollViewProps & {
@@ -44,7 +44,6 @@ const ContentY = (props: ContentYProps): React.JSX.Element => {
     ]);
 
     const { onLayout, onContentSizeChange, onScroll } = useContentYHandler({
-        disabled,
         props: p,
     });
 

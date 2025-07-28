@@ -10,7 +10,7 @@ import {
 } from "@scrolia/react-native-reanimated";
 import { StyleSheet } from "react-native";
 
-type ScrollbarProps = Pick<Options, "disabled" | "animated"> & {
+type ScrollbarProps = Pick<Options, "disabled"> & {
     children?: React.ReactNode;
 };
 
@@ -20,7 +20,7 @@ const Scrollbar = (props: ScrollbarProps): React.JSX.Element => {
     return (
         <S.Provider
             disabled={p.disabled}
-            animated={true}
+            animated
         >
             <S.Container style={styles.container}>
                 <S.ContentX>

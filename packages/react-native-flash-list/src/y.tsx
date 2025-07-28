@@ -4,7 +4,7 @@ import type { FlashListProps } from "@shopify/flash-list";
 
 import { useScrollCore } from "@scrolia/react-native/contexts/scrollcore";
 import { getComponentProps } from "@scrolia/react-native/functions/props";
-import { useContentYHandler } from "@scrolia/react-native/hooks/content/y";
+import { useContentYHandler } from "@scrolia/react-native/hooks/content";
 import { FlashList } from "@shopify/flash-list";
 import * as React from "react";
 
@@ -43,7 +43,6 @@ const FlashListY = <T,>(props: FlashListYProps<T>): React.JSX.Element => {
     ]);
 
     const { onLayout, onContentSizeChange, onScroll } = useContentYHandler({
-        disabled,
         props,
     });
 

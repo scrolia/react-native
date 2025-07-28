@@ -7,7 +7,7 @@ import { FlatList } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { getComponentProps } from "#/functions/props";
-import { useContentYHandler } from "#/hooks/content/y";
+import { useContentYHandler } from "#/hooks/content";
 
 /** Props for the `ListY` component. */
 type ListYProps<T> = FlatListProps<T> & {
@@ -44,7 +44,6 @@ const ListY = <T,>(props: ListYProps<T>): React.JSX.Element => {
     ]);
 
     const { onLayout, onContentSizeChange, onScroll } = useContentYHandler({
-        disabled,
         props: p,
     });
 

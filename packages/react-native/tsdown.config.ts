@@ -9,10 +9,8 @@ const options: Options = {
         // internal
         "contexts/scrollcore": "./src/contexts/scrollcore.ts",
         "functions/props": "./src/functions/props.ts",
-        "hooks/content/x": "./src/hooks/content/x.ts",
-        "hooks/content/y": "./src/hooks/content/y.ts",
-        "hooks/thumb/x": "./src/hooks/thumb/x.ts",
-        "hooks/thumb/y": "./src/hooks/thumb/y.ts",
+        "hooks/content/index": "./src/hooks/content/index.ts",
+        "hooks/thumb/index": "./src/hooks/thumb/index.ts",
     },
     dts: false,
     outDir: "./dist",

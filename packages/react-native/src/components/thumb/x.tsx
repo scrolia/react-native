@@ -7,7 +7,7 @@ import { Animated, View } from "react-native";
 
 import { useScrollCore } from "#/contexts/scrollcore";
 import { getComponentProps } from "#/functions/props";
-import { useThumbXHandler } from "#/hooks/thumb/x";
+import { useThumbXHandler } from "#/hooks/thumb";
 
 /** Props for the `ThumbX` component. */
 type ThumbXProps = ViewProps & {

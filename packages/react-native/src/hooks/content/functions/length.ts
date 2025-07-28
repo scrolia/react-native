@@ -1,24 +1,34 @@
-import type { OnSetLengthResult } from "#/@types/options";
+import type { Axis, OnSetLengthResult, Plugin } from "#/@types/options";
 
-import { useScrollCore } from "#/contexts/scrollcore";
 import { tryPlugin } from "#/functions/plugin";
 
-const pos = "y" as const;
+type SetLengthOptions = {
+    axis: Axis;
+    disabled: boolean;
+    animated: boolean;
+    plugins: Plugin[];
+    hvTrack: boolean;
+    hvThumb: boolean;
+    total: React.RefObject<number>;
+    view: React.RefObject<number>;
+    viewOffset: React.RefObject<number>;
+    scrollbarLength: number;
+    setScrollbarLength: React.Dispatch<React.SetStateAction<number>>;
+};
 
-const useSetLengthY = () => {
-    const {
-        options: { disabled, animated, plugins },
-        [pos]: {
-            hvTrack,
-            hvThumb,
-            total,
-            view,
-            viewOffset,
-            scrollbarLength,
-            setScrollbarLength,
-        },
-    } = useScrollCore();
-
+const setLengthFn = ({
+    axis,
+    disabled,
+    animated,
+    plugins,
+    hvTrack,
+    hvThumb,
+    total,
+    view,
+    viewOffset,
+    scrollbarLength,
+    setScrollbarLength,
+}: SetLengthOptions): (() => void) => {
     return (): void => {
         const _total: number = total.current;
         const _view: number = view.current;
@@ -33,7 +43,7 @@ const useSetLengthY = () => {
 
             result =
                 tryPlugin(plugin, plugin.onSetLength, {
-                    axis: pos,
+                    axis,
                     isDisabled: disabled,
                     isAnimated: animated,
                     isDefined: hvTrack && hvThumb,
@@ -54,7 +64,7 @@ const useSetLengthY = () => {
             length = scrollbarLengthNext;
         }
 
-        // set length
+        // check if the scrollbar is needed
         if (_view >= _total) {
             setScrollbarLength(0);
         } else {
@@ -63,4 +73,5 @@ const useSetLengthY = () => {
     };
 };
 
-export { useSetLengthY };
+export type { SetLengthOptions };
+export { setLengthFn };
