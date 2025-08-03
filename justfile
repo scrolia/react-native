@@ -102,6 +102,96 @@ example-reanimated-build:
 example-reanimated-start:
     cd ./{{example_reanimated}} && pnpm run start
 
+# Add/Remove dev version tag for native package
+version-dev-native VERSION="":
+    node ./scripts/version-dev.mts ./{{native}}/package.json {{VERSION}}
+
+# Add/Remove dev version tag for flashlist package
+version-dev-flashlist VERSION="":
+    node ./scripts/version-dev.mts ./{{flashlist}}/package.json {{VERSION}}
+
+# Add/Remove dev version tag for reanimated package
+version-dev-reanimated VERSION="":
+    node ./scripts/version-dev.mts ./{{reanimated}}/package.json {{VERSION}}
+
+# Add/Remove dev version tag
+version-dev VERSION="":
+    just version-dev-native {{VERSION}}
+    just version-dev-flashlist {{VERSION}}
+    just version-dev-reanimated {{VERSION}}
+
+# Publish react-native package with dev tag as dry-run
+publish-dev-try-native:
+    cd ./{{native}} && pnpm publish --no-git-checks --tag dev --dry-run
+
+# Publish flashlist package with dev tag as dry-run
+publish-dev-try-flashlist:
+    cd ./{{flashlist}} && pnpm publish --no-git-checks --tag dev --dry-run
+
+# Publish reanimated package with dev tag as dry-run
+publish-dev-try-reanimated:
+    cd ./{{reanimated}} && pnpm publish --no-git-checks --tag dev --dry-run
+
+# Publish all packages with dev tag
+publish-dev-try:
+    just publish-dev-try-native
+    just publish-dev-try-flashlist
+    just publish-dev-try-reanimated
+
+# Publish react-native package with dev tag
+publish-dev-native:
+    cd ./{{native}} && pnpm publish --no-git-checks --tag dev
+
+# Publish flashlist package with dev tag
+publish-dev-flashlist:
+    cd ./{{flashlist}} && pnpm publish --no-git-checks --tag dev
+
+# Publish reanimated package with dev tag
+publish-dev-reanimated:
+    cd ./{{reanimated}} && pnpm publish --no-git-checks --tag dev
+
+# Publish all packages with dev tag
+publish-dev:
+    just publish-dev-native
+    just publish-dev-flashlist
+    just publish-dev-reanimated
+
+# Publish react-native package as dry-run
+publish-try-native:
+    cd ./{{native}} && pnpm publish --no-git-checks --dry-run
+
+# Publish flashlist package as dry-run
+publish-try-flashlist:
+    cd ./{{flashlist}} && pnpm publish --no-git-checks --dry-run
+
+# Publish reanimated package as dry-run
+publish-try-reanimated:
+    cd ./{{reanimated}} && pnpm publish --no-git-checks --dry-run
+
+# Publish all packages as dry-run
+publish-try:
+    just publish-try-native
+    just publish-try-flashlist
+    just publish-try-reanimated
+
+# Publish react-native package
+publish-native:
+    cd ./{{native}} && pnpm publish
+
+# Publish flashlist package
+publish-flashlist:
+    cd ./{{flashlist}} && pnpm publish
+
+# Publish reanimated package
+publish-reanimated:
+    cd ./{{reanimated}} && pnpm publish
+
+# Publish all packages
+publish:
+    just publish-native
+    just publish-flashlist
+    just publish-reanimated
+
 # Clean builds
 clean:
     rm -rf ./{{example_common}}/dist

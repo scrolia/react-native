@@ -7,7 +7,7 @@ const content: string = fs.readFileSync(path, "utf-8");
 if (content.includes('"@shopify/flash-list": "')) {
     const updatedContent: string = content.replace(
         /"@shopify\/flash-list":\s*"(.*?)"/,
-        '"@shopify/flash-list": "catalog:dev"'
+        '"@shopify/flash-list": "catalog:dev"',
     );
 
     fs.writeFileSync(path, updatedContent, "utf-8");
@@ -16,7 +16,7 @@ if (content.includes('"@shopify/flash-list": "')) {
 if (content.includes('"react-native-reanimated": "')) {
     const updatedContent: string = content.replace(
         /"react-native-reanimated":\s*"(.*?)"/,
-        '"react-native-reanimated": "catalog:dev"'
+        '"react-native-reanimated": "catalog:dev"',
     );
 
     fs.writeFileSync(path, updatedContent, "utf-8");
