@@ -1,6 +1,6 @@
 "use client";
 
-import type { FlashListProps } from "@shopify/flash-list";
+import type { FlashListProps, FlashListRef } from "@shopify/flash-list";
 
 import { useScrollCore } from "@scrolia/react-native/contexts/scrollcore";
 import { getComponentProps } from "@scrolia/react-native/functions/props";
@@ -10,7 +10,7 @@ import * as React from "react";
 
 /** Props for the `FlashListX` component. */
 type FlashListXProps<T> = FlashListProps<T> & {
-    ref?: React.Ref<FlashList<T>>;
+    ref?: React.Ref<FlashListRef<T>>;
 };
 
 /**
@@ -30,8 +30,8 @@ const FlashListX = <T,>(props: FlashListXProps<T>): React.JSX.Element => {
         plugins,
     });
 
-    React.useImperativeHandle(p.ref, (): FlashList<T> => {
-        return contentRef.current as FlashList<T>;
+    React.useImperativeHandle(p.ref, (): FlashListRef<T> => {
+        return contentRef.current as FlashListRef<T>;
     }, [
         contentRef,
     ]);
