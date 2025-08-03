@@ -57,6 +57,15 @@ api:
     cd ./{{flashlist}} && ../../{{typedoc}}
     cd ./{{reanimated}} && ../../{{typedoc}}
 
+# Update dependencies in examples
+update-example:
+    cd ./{{example_common}} && pnpm dlx expo install expo@latest && pnpm dlx expo install --fix
+    cd ./{{example_flashlist}} && pnpm dlx expo install expo@latest && pnpm dlx expo install --fix
+    node ./scripts/set-dep.mts ./{{example_flashlist}}/package.json
+    cd ./{{example_reanimated}} && pnpm dlx expo install expo@latest && pnpm dlx expo install --fix
+    node ./scripts/set-dep.mts ./{{example_reanimated}}/package.json
+    just i
+
 # Start common example in development mode
 example-common:
     cd ./{{example_common}} && pnpm run dev
