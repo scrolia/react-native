@@ -6,6 +6,7 @@
 
 | Type Alias | Description |
 | ------ | ------ |
+| [Axis](type-aliases/Axis.md) | The axis of the scrollbar. |
 | [ContainerProps](type-aliases/ContainerProps.md) | Props for the `Container` component. |
 | [ContentXProps](type-aliases/ContentXProps.md) | Props for the `ContentX` component. |
 | [ContentYProps](type-aliases/ContentYProps.md) | Props for the `ContentY` component. |
@@ -18,7 +19,9 @@
 | [OnSetLengthOptions](type-aliases/OnSetLengthOptions.md) | The options for the `onSetLength` function. |
 | [OnSetLengthResult](type-aliases/OnSetLengthResult.md) | The result for the `onSetLength` function. |
 | [Options](type-aliases/Options.md) | Scrollbar options. |
-| [Position](type-aliases/Position.md) | The position of the scrollbar. |
+| [Plugin](type-aliases/Plugin.md) | Scrollbar plugin. |
+| [PluginProps](type-aliases/PluginProps.md) | Scrollbar plugin props. |
+| [PluginPropsFunction](type-aliases/PluginPropsFunction.md) | The function to get previous props and return new props. |
 | [ProviderProps](type-aliases/ProviderProps.md) | Props for the `Provider` component. |
 | [ThumbXProps](type-aliases/ThumbXProps.md) | Props for the `ThumbX` component. |
 | [ThumbYProps](type-aliases/ThumbYProps.md) | Props for the `ThumbY` component. |

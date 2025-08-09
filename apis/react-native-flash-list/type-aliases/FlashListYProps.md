@@ -6,7 +6,7 @@
 type FlashListYProps<T> = FlashListProps<T> & object;
 ```
 
-Defined in: [y.tsx:12](https://github.com/scrolia/react-native/blob/107e0a978a4d75b58537d45c6e53de02c37b518c/packages/react-native-flash-list/src/y.tsx#L12)
+Defined in: [y.tsx:12](https://github.com/scrolia/react-native/blob/18a2549a1dd6520258081448edde7edcb687a096/packages/react-native-flash-list/src/y.tsx#L12)
 
 Props for the `FlashListY` component.
 
@@ -15,7 +15,7 @@ Props for the `FlashListY` component.
 ### ref?
 
 ```ts
-optional ref: React.Ref<FlashList<T>>;
+optional ref: React.Ref<FlashListRef<T>>;
 ```
 
 ## Type Parameters
