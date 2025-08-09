@@ -157,40 +157,40 @@ publish-dev:
     just publish-dev-reanimated
 
 # Publish react-native package as dry-run
-publish-prd-try-native:
+publish-try-native:
     cd ./{{native}} && pnpm publish --no-git-checks --dry-run
 
 # Publish flashlist package as dry-run
-publish-prd-try-flashlist:
+publish-try-flashlist:
     cd ./{{flashlist}} && pnpm publish --no-git-checks --dry-run
 
 # Publish reanimated package as dry-run
-publish-prd-try-reanimated:
+publish-try-reanimated:
     cd ./{{reanimated}} && pnpm publish --no-git-checks --dry-run
 
 # Publish all packages as dry-run
-publish-prd-try:
+publish-try:
     just publish-try-native
     just publish-try-flashlist
     just publish-try-reanimated
 
 # Publish react-native package
-publish-prd-native:
+publish-native:
     cd ./{{native}} && pnpm publish
 
 # Publish flashlist package
-publish-prd-flashlist:
+publish-flashlist:
     cd ./{{flashlist}} && pnpm publish
 
 # Publish reanimated package
-publish-prd-reanimated:
+publish-reanimated:
     cd ./{{reanimated}} && pnpm publish
 
 # Publish all packages
-publish-prd:
-    just publish-prd-native
-    just publish-prd-flashlist
-    just publish-prd-reanimated
+publish:
+    just publish-native
+    just publish-flashlist
+    just publish-reanimated
 
 # Clean builds
 clean:
