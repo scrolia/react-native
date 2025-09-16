@@ -6,11 +6,11 @@
 type ReanimatedThumbYProps = ViewProps & object;
 ```
 
-Defined in: [thumb/y.tsx:13](https://github.com/scrolia/react-native/blob/18a2549a1dd6520258081448edde7edcb687a096/packages/react-native-reanimated/src/thumb/y.tsx#L13)
+Defined in: [thumb/y.tsx:13](https://github.com/scrolia/react-native/blob/1fb46d4d308667f54f560e30294f1e8f8e5e5b84/packages/react-native-reanimated/src/thumb/y.tsx#L13)
 
 Props for the `ReanimatedThumbY` component.
 
-## Type declaration
+## Type Declaration
 
 ### ref?
 
