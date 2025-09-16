@@ -27,6 +27,15 @@ const reactNativeFlashList = path.resolve(
     "README.md",
 );
 
+const reactNativeLegendList = path.resolve(
+    process.cwd(),
+    "..",
+    "..",
+    "apis",
+    "react-native-legend-list",
+    "README.md",
+);
+
 const reactNativeReanimated = path.resolve(
     process.cwd(),
     "..",
@@ -43,6 +52,7 @@ const insert = (page) => {
     if (
         page.filename === reactNative ||
         page.filename === reactNativeFlashList ||
+        page.filename === reactNativeLegendList ||
         page.filename === reactNativeReanimated
     ) {
         const head = "[< Back](../../README.md)\n\n";

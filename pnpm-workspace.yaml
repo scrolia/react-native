@@ -7,12 +7,14 @@ catalogs:
     dep:
         ts-vista: ~0.2.2
     dev:
+        "@legendapp/list": 2.0.0
         "@shopify/flash-list": 2.0.0
         "@types/react": ~19.0.0
         react: 19.0.0
         react-native: 0.78.0
         react-native-reanimated: 3.16.0
     peer:
+        "@legendapp/list": ^2.0.0
         "@shopify/flash-list": ^2.0.0
         react: ^19.0.0
         react-native: ~0.78.0 || ~0.79.0 || ~0.80.0 || ~0.81.0

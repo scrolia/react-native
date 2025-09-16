@@ -1,0 +1,61 @@
+{
+    "name": "@scrolia/react-native-legend-list",
+    "version": "0.6.1",
+    "description": "A set of list components for Scrolia React Native",
+    "keywords": [
+        "scrolia",
+        "scrollbar",
+        "react",
+        "react-native",
+        "react-native-web",
+        "legendlist",
+        "legend",
+        "list",
+        "headless",
+        "component",
+        "ts",
+        "typescript",
+        "js",
+        "javascript"
+    ],
+    "homepage": "https://github.com/scrolia/react-native",
+    "bugs": "https://github.com/scrolia/react-native/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/scrolia/react-native.git",
+        "directory": "packages/react-native-legend-list"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Alpheus",
+        "email": "contact@alphe.us"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        },
+        "./package.json": "./package.json"
+    },
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "@scrolia/react-native": "workspace:~"
+    },
+    "devDependencies": {
+        "@legendapp/list": "catalog:dev",
+        "@types/react": "catalog:dev",
+        "react": "catalog:dev",
+        "react-native": "catalog:dev"
+    },
+    "peerDependencies": {
+        "@legendapp/list": "catalog:peer",
+        "react": "catalog:peer",
+        "react-native": "catalog:peer"
+    }
+}

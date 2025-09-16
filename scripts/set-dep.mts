@@ -4,6 +4,15 @@ const path: string = process.argv[2];
 
 const content: string = fs.readFileSync(path, "utf-8");
 
+if (content.includes('"@legendapp/list": "')) {
+    const updatedContent: string = content.replace(
+        /"@legendapp\/list":\s*"(.*?)"/,
+        '"@legendapp/list": "catalog:dev"',
+    );
+
+    fs.writeFileSync(path, updatedContent, "utf-8");
+}
+
 if (content.includes('"@shopify/flash-list": "')) {
     const updatedContent: string = content.replace(
         /"@shopify\/flash-list":\s*"(.*?)"/,

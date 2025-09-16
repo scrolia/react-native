@@ -1,0 +1,26 @@
+{
+    "private": true,
+    "main": "./src/index.ts",
+    "scripts": {
+        "dev": "expo start --clear --port 3001",
+        "build": "expo export -p web",
+        "start": "expo serve --port 3000",
+        "": ""
+    },
+    "dependencies": {
+        "@expo/metro-runtime": "~5.0.4",
+        "@legendapp/list": "catalog:dev",
+        "@scrolia/react-native": "workspace:~",
+        "@scrolia/react-native-legend-list": "workspace:~",
+        "expo": "~53.0.20",
+        "expo-status-bar": "~2.2.3",
+        "react": "19.0.0",
+        "react-dom": "19.0.0",
+        "react-native": "0.79.5",
+        "react-native-web": "0.20.0"
+    },
+    "devDependencies": {
+        "@babel/core": "7.27.4",
+        "@types/react": "~19.0.14"
+    }
+}

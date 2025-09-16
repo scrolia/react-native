@@ -9,6 +9,10 @@ const content: string = fs.readFileSync(path, "utf-8");
 const updated: string = content.replace(
     /\b(\d+\.\d+\.\d+)(-dev\.\d+)?\b/g,
     (_match: string, base: string, devSuffix: string | undefined): string => {
+        console.log({
+            base,
+            devSuffix,
+        });
         if (!ver) return base;
         return devSuffix ? base : `${base}-dev.${ver}`;
     },
