@@ -248,9 +248,20 @@ List components based on `@shopify/flash-list`:
 - `FlashListX`
 - `FlashListY`
 
-For more information,
-please refer to
+For more information,please refer to
 [Shopify FlashList](https://shopify.github.io/flash-list/).
+
+### `@scrolia/react-native-legend-list`
+
+> This package requires `@legendapp/list` to be installed.
+
+List components based on `@legendapp/list`:
+
+- `LegendListX`
+- `LegendListY`
+
+For more information, please refer to
+[Legend List](https://github.com/LegendApp/legend-list).
 
 ### `@scrolia/react-native-reanimated`
 
@@ -263,6 +274,5 @@ Components based on `react-native-reanimated`:
 - `ReanimatedThumbX`
 - `ReanimatedThumbY`
 
-For more information,
-please refer to
+For more information, please refer to
 [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/).
