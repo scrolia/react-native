@@ -261,7 +261,7 @@ List components based on `@legendapp/list`:
 - `LegendListY`
 
 For more information, please refer to
-[Legend List](https://github.com/LegendApp/legend-list).
+[Legend List](https://www.legendapp.com/open-source/list).
 
 ### `@scrolia/react-native-reanimated`
 
