@@ -43,8 +43,8 @@ importers:
         specifier: ^2.2.4
         version: 2.2.4
       tsdown:
-        specifier: ~0.15.1
-        version: 0.15.1(typescript@5.9.2)
+        specifier: ~0.15.2
+        version: 0.15.2(typescript@5.9.2)
       typedoc:
         specifier: ~0.28.13
         version: 0.28.13(typescript@5.9.2)
@@ -3306,8 +3306,8 @@ packages:
   ts-vista@0.2.2:
     resolution: {integrity: sha512-QhuUrGs8WwGgHy1iUOfMztvLE0XB3EH4hFjw6rFGpStav5os7keIx9EHfJTBSpaPdlE3MmGBwVFAbTjDjROFuQ==}
 
-  tsdown@0.15.1:
-    resolution: {integrity: sha512-USTr2wS5OIyohR8Sp09rp5mXVwOX4YvVRqarS9I9jIhF+PqgtVSMXG4vBrHGY1OficNcLT5Z75pSoxd2uU+BYg==}
+  tsdown@0.15.2:
+    resolution: {integrity: sha512-qPbWcVnI7Ekq5p4xPiLwuS9siczCGPAyZYsAzcS1xTcFvkkZIsDbh3ejlmUoe/ypLJl5+oQ4Rbwp63Zf+eWiMw==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
@@ -7342,7 +7342,7 @@ snapshots:
 
   ts-vista@0.2.2: {}
 
-  tsdown@0.15.1(typescript@5.9.2):
+  tsdown@0.15.2(typescript@5.9.2):
     dependencies:
       ansis: 4.1.0
       cac: 6.7.14
