@@ -14,3 +14,7 @@ updates:
           - dependency-name: "typedoc"
           - dependency-name: "typedoc-plugin-markdown"
           - dependency-name: "typescript"
+      cooldown:
+          default-days: 1
+          include:
+              - "*"
