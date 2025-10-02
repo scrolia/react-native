@@ -43,8 +43,8 @@ importers:
         specifier: ^2.2.4
         version: 2.2.4
       tsdown:
-        specifier: ~0.15.5
-        version: 0.15.5(typescript@5.9.3)
+        specifier: ~0.15.6
+        version: 0.15.6(typescript@5.9.3)
       typedoc:
         specifier: ~0.28.13
         version: 0.28.13(typescript@5.9.3)
@@ -2266,8 +2266,8 @@ packages:
   jimp-compact@0.16.1:
     resolution: {integrity: sha512-dZ6Ra7u1G8c4Letq/B5EzAxj4tLFHL+cGtdpR+PVm4yzPDj+lCk+AbivWt1eOM+ikzkowtyV7qSqX6qr3t71Ww==}
 
-  jiti@2.6.0:
-    resolution: {integrity: sha512-VXe6RjJkBPj0ohtqaO8vSWP3ZhAKo66fKrFNCll4BTcwljPLz03pCbaNKfzGP5MbrCYcbJ7v0nOYYwUzTEIdXQ==}
+  jiti@2.6.1:
+    resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==}
     hasBin: true
 
   js-tokens@4.0.0:
@@ -3043,15 +3043,15 @@ packages:
     deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
-  rolldown-plugin-dts@0.16.9:
-    resolution: {integrity: sha512-65fAQjQAAXW7j2V5/872r++jjjR2/Pur18/PQO/JgfJl3vKxapXO2KU1l5bUdRoFuuryF+23+Hfu0Cw3bhM97g==}
+  rolldown-plugin-dts@0.16.11:
+    resolution: {integrity: sha512-9IQDaPvPqTx3RjG2eQCK5GYZITo203BxKunGI80AGYicu1ySFTUyugicAaTZWRzFWh9DSnzkgNeMNbDWBbSs0w==}
     engines: {node: '>=20.18.0'}
     peerDependencies:
       '@ts-macro/tsc': ^0.3.6
       '@typescript/native-preview': '>=7.0.0-dev.20250601.1'
       rolldown: ^1.0.0-beta.9
       typescript: ^5.0.0
-      vue-tsc: ~3.0.3
+      vue-tsc: ~3.1.0
     peerDependenciesMeta:
       '@ts-macro/tsc':
         optional: true
@@ -3318,8 +3318,8 @@ packages:
   ts-vista@0.2.2:
     resolution: {integrity: sha512-QhuUrGs8WwGgHy1iUOfMztvLE0XB3EH4hFjw6rFGpStav5os7keIx9EHfJTBSpaPdlE3MmGBwVFAbTjDjROFuQ==}
 
-  tsdown@0.15.5:
-    resolution: {integrity: sha512-2UP5hDBVYGHnnQSIYtDxMDjePmut7EDpvW5E2kVnjpZ17JgiPvRJPHwk5Dm045bC75+q8yxAlw/CMIELymTWaw==}
+  tsdown@0.15.6:
+    resolution: {integrity: sha512-W6++O3JeV9gm3JY6P/vLiC7zzTcJbZhQxXb+p3AvRMpDOPBIg82yXULyZCcwjsihY/bFG+Qw37HkezZbP7fzUg==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
@@ -6044,7 +6044,7 @@ snapshots:
 
   jimp-compact@0.16.1: {}
 
-  jiti@2.6.0: {}
+  jiti@2.6.1: {}
 
   js-tokens@4.0.0: {}
 
@@ -7079,7 +7079,7 @@ snapshots:
     dependencies:
       glob: 7.2.3
 
-  rolldown-plugin-dts@0.16.9(rolldown@1.0.0-beta.41)(typescript@5.9.3):
+  rolldown-plugin-dts@0.16.11(rolldown@1.0.0-beta.41)(typescript@5.9.3):
     dependencies:
       '@babel/generator': 7.28.3
       '@babel/parser': 7.28.4
@@ -7354,7 +7354,7 @@ snapshots:
 
   ts-vista@0.2.2: {}
 
-  tsdown@0.15.5(typescript@5.9.3):
+  tsdown@0.15.6(typescript@5.9.3):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14
@@ -7364,7 +7364,7 @@ snapshots:
       empathic: 2.0.0
       hookable: 5.5.3
       rolldown: 1.0.0-beta.41
-      rolldown-plugin-dts: 0.16.9(rolldown@1.0.0-beta.41)(typescript@5.9.3)
+      rolldown-plugin-dts: 0.16.11(rolldown@1.0.0-beta.41)(typescript@5.9.3)
       semver: 7.7.2
       tinyexec: 1.0.1
       tinyglobby: 0.2.15
@@ -7410,7 +7410,7 @@ snapshots:
     dependencies:
       '@quansync/fs': 0.1.5
       defu: 6.1.4
-      jiti: 2.6.0
+      jiti: 2.6.1
       quansync: 0.2.11
 
   undici-types@7.8.0: {}
