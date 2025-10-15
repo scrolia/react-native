@@ -43,8 +43,8 @@ importers:
         specifier: ^2.2.6
         version: 2.2.6
       tsdown:
-        specifier: ~0.15.6
-        version: 0.15.6(typescript@5.9.3)
+        specifier: ~0.15.7
+        version: 0.15.7(typescript@5.9.3)
       typedoc:
         specifier: ~0.28.14
         version: 0.28.14(typescript@5.9.3)
@@ -1486,9 +1486,9 @@ packages:
   asap@2.0.6:
     resolution: {integrity: sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA==}
 
-  ast-kit@2.1.2:
-    resolution: {integrity: sha512-cl76xfBQM6pztbrFWRnxbrDm9EOqDr1BF6+qQnnDZG2Co2LjyUktkN9GTJfBAfdae+DbT2nJf2nCGAdDDN7W2g==}
-    engines: {node: '>=20.18.0'}
+  ast-kit@2.1.3:
+    resolution: {integrity: sha512-TH+b3Lv6pUjy/Nu0m6A2JULtdzLpmqF9x1Dhj00ZoEiML8qvVA9j1flkzTKNYgdEhWrjDwtWNpyyCUbfQe514g==}
+    engines: {node: '>=20.19.0'}
 
   ast-types@0.16.1:
     resolution: {integrity: sha512-6t10qk83GOG8p0vKmaCr8eiilZwO171AvbROMtvvNiwrTly62t+7XkA8RdIIVbpMhCASAsxgAzdRSwh6nw/5Dg==}
@@ -2077,8 +2077,8 @@ packages:
     resolution: {integrity: sha512-pjzuKtY64GYfWizNAJ0fr9VqttZkNiK2iS430LtIHzjBEr6bX8Am2zm4sW4Ro5wjWW5cAlRL1qAMTcXbjNAO2Q==}
     engines: {node: '>=8.0.0'}
 
-  get-tsconfig@4.10.1:
-    resolution: {integrity: sha512-auHyJ4AgMz7vgS8Hp3N6HXSmlMdUyhSUrfBF16w153rxtLIEOE+HGqaBppczZvnHLqQJfiHotCYpNhl0lUROFQ==}
+  get-tsconfig@4.12.0:
+    resolution: {integrity: sha512-LScr2aNr2FbjAjZh2C6X6BxRx1/x+aTDExct/xyq2XKbYOiG5c0aK7pMsSuyc0brz3ibr/lbQiHD9jzt4lccJw==}
 
   getenv@2.0.0:
     resolution: {integrity: sha512-VilgtJj/ALgGY77fiLam5iD336eSWi96Q15JSAG1zi8NRBysm3LXKdGnHb4m5cuyxvOLQQKWpBZAT6ni4FI2iQ==}
@@ -3098,6 +3098,11 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  semver@7.7.3:
+    resolution: {integrity: sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q==}
+    engines: {node: '>=10'}
+    hasBin: true
+
   send@0.19.0:
     resolution: {integrity: sha512-dW41u5VfLXu8SJh5bwRmyYUbAoSB3c9uQh6L8h/KtsFREPWpbX1lrljJo186Jc4nmci/sGUZ9a0a0J2zgfq2hw==}
     engines: {node: '>= 0.8.0'}
@@ -3318,8 +3323,8 @@ packages:
   ts-vista@0.2.2:
     resolution: {integrity: sha512-QhuUrGs8WwGgHy1iUOfMztvLE0XB3EH4hFjw6rFGpStav5os7keIx9EHfJTBSpaPdlE3MmGBwVFAbTjDjROFuQ==}
 
-  tsdown@0.15.6:
-    resolution: {integrity: sha512-W6++O3JeV9gm3JY6P/vLiC7zzTcJbZhQxXb+p3AvRMpDOPBIg82yXULyZCcwjsihY/bFG+Qw37HkezZbP7fzUg==}
+  tsdown@0.15.7:
+    resolution: {integrity: sha512-uFaVgWAogjOMqjY+CQwrUt3C6wzy6ynt82CIoXymnbS17ipUZ8WDXUceJjkislUahF/BZc5+W44Ue3p2oWtqUg==}
     engines: {node: '>=20.19.0'}
     hasBin: true
     peerDependencies:
@@ -4470,7 +4475,7 @@ snapshots:
       jimp-compact: 0.16.1
       parse-png: 2.1.0
       resolve-from: 5.0.0
-      semver: 7.7.2
+      semver: 7.7.3
       temp-dir: 2.0.0
       unique-string: 2.0.0
 
@@ -4537,7 +4542,7 @@ snapshots:
       '@react-native/normalize-colors': 0.79.5
       debug: 4.4.3
       resolve-from: 5.0.0
-      semver: 7.7.2
+      semver: 7.7.3
       xml2js: 0.6.0
     transitivePeerDependencies:
       - supports-color
@@ -5209,7 +5214,7 @@ snapshots:
 
   asap@2.0.6: {}
 
-  ast-kit@2.1.2:
+  ast-kit@2.1.3:
     dependencies:
       '@babel/parser': 7.28.4
       pathe: 2.0.3
@@ -5823,7 +5828,7 @@ snapshots:
 
   get-package-type@0.1.0: {}
 
-  get-tsconfig@4.10.1:
+  get-tsconfig@4.12.0:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
@@ -6643,7 +6648,7 @@ snapshots:
     dependencies:
       hosted-git-info: 7.0.2
       proc-log: 4.2.0
-      semver: 7.7.2
+      semver: 7.7.3
       validate-npm-package-name: 5.0.1
 
   nullthrows@1.1.1: {}
@@ -7084,11 +7089,11 @@ snapshots:
       '@babel/generator': 7.28.3
       '@babel/parser': 7.28.4
       '@babel/types': 7.28.4
-      ast-kit: 2.1.2
+      ast-kit: 2.1.3
       birpc: 2.6.1
       debug: 4.4.3
       dts-resolver: 2.1.2
-      get-tsconfig: 4.10.1
+      get-tsconfig: 4.12.0
       magic-string: 0.30.19
       rolldown: 1.0.0-beta.43
     optionalDependencies:
@@ -7138,6 +7143,8 @@ snapshots:
       lru-cache: 6.0.0
 
   semver@7.7.2: {}
+
+  semver@7.7.3: {}
 
   send@0.19.0:
     dependencies:
@@ -7354,7 +7361,7 @@ snapshots:
 
   ts-vista@0.2.2: {}
 
-  tsdown@0.15.6(typescript@5.9.3):
+  tsdown@0.15.7(typescript@5.9.3):
     dependencies:
       ansis: 4.2.0
       cac: 6.7.14
@@ -7365,7 +7372,7 @@ snapshots:
       hookable: 5.5.3
       rolldown: 1.0.0-beta.43
       rolldown-plugin-dts: 0.16.11(rolldown@1.0.0-beta.43)(typescript@5.9.3)
-      semver: 7.7.2
+      semver: 7.7.3
       tinyexec: 1.0.1
       tinyglobby: 0.2.15
       tree-kill: 1.2.2
