@@ -5,7 +5,7 @@ A customizable scrollbar component.
 ## Documentation
 
 For the documentation, 
-please refer to the [Documentation](./docs//README.md).
+please refer to the [documentation](./docs//README.md).
 
 ## APIs
 
@@ -20,6 +20,10 @@ For Legend List package APIs, please refer to the
 
 For Reanimated package APIs, please refer to the 
 [Reanimated APIs](./apis/react-native-reanimated/README.md).
+
+## Contributing
+
+For contributing, please refer to the [contributing guide](./CONTRIBUTING.md).
 
 ## License
 
