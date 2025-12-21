@@ -1,6 +1,6 @@
 [< Back](../../README.md)
 
-# @scrolia/react-native-flash-list v0.6.2
+# @scrolia/react-native-flash-list v0.6.3
 
 ## Type Aliases
 

@@ -6,7 +6,7 @@
 type ReanimatedTrackYProps = ViewProps & object;
 ```
 
-Defined in: [track/y.tsx:12](https://github.com/scrolia/react-native/blob/72dbfebee1489f0d6f88a5ac0f4a4cba7ccca4eb/packages/react-native-reanimated/src/track/y.tsx#L12)
+Defined in: [track/y.tsx:12](https://github.com/scrolia/react-native/blob/a0c75a0c305a9ca4bfc1d54fcdc9562f38cb25fb/packages/react-native-reanimated/src/track/y.tsx#L12)
 
 Props for the `ReanimatedTrackY` component.
 
