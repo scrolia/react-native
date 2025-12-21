@@ -3,14 +3,16 @@ import type {
     GestureResponderEvent,
     PanResponderGestureState,
     PanResponderInstance,
+    ScrollView,
 } from "react-native";
 
 import type { Axis, OnDragMoveResult, Plugin } from "#/@types/options";
+import type { ContentType } from "#/contexts/scrollcore";
 
 import * as React from "react";
-import { PanResponder, type ScrollView } from "react-native";
+import { PanResponder } from "react-native";
 
-import { type ContentType, useScrollCore } from "#/contexts/scrollcore";
+import { useScrollCore } from "#/contexts/scrollcore";
 import { tryPlugin } from "#/functions/plugin";
 
 type StartPos = {

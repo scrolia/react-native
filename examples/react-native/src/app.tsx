@@ -1,7 +1,8 @@
 import type * as React from "react";
+import type { ListRenderItemInfo } from "react-native";
 
 import { StatusBar } from "expo-status-bar";
-import { type ListRenderItemInfo, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import { List } from "./components/list";
 import { Scrollbar } from "./components/scrollbar";
