@@ -5,7 +5,7 @@ packages:
 
 catalogs:
     dep:
-        ts-vista: ~0.2.2
+        ts-vista: ~0.2.3
     dev:
         "@legendapp/list": 2.0.0
         "@shopify/flash-list": 2.0.0

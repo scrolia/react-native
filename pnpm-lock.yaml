@@ -7,8 +7,8 @@ settings:
 catalogs:
   dep:
     ts-vista:
-      specifier: ~0.2.2
-      version: 0.2.2
+      specifier: ~0.2.3
+      version: 0.2.3
   dev:
     '@legendapp/list':
       specifier: 2.0.0
@@ -219,7 +219,7 @@ importers:
     dependencies:
       ts-vista:
         specifier: catalog:dep
-        version: 0.2.2
+        version: 0.2.3
     devDependencies:
       '@types/react':
         specifier: catalog:dev
@@ -3321,8 +3321,8 @@ packages:
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
 
-  ts-vista@0.2.2:
-    resolution: {integrity: sha512-QhuUrGs8WwGgHy1iUOfMztvLE0XB3EH4hFjw6rFGpStav5os7keIx9EHfJTBSpaPdlE3MmGBwVFAbTjDjROFuQ==}
+  ts-vista@0.2.3:
+    resolution: {integrity: sha512-aXdjXqE2ReXVauZTVDfA4Dl5StYID/kS9Z+uUBLJIhdU2oNQC/A33aMj9zeVJCd3fn0UtT8Wj+PAMCRASirkwg==}
 
   tsdown@0.18.1:
     resolution: {integrity: sha512-na4MdVA8QS9Zw++0KovGpjvw1BY5WvoCWcE4Aw0dyfff9nWK8BPzniQEVs+apGUg3DHaYMDfs+XiFaDDgqDDzQ==}
@@ -7366,7 +7366,7 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
-  ts-vista@0.2.2: {}
+  ts-vista@0.2.3: {}
 
   tsdown@0.18.1(typescript@5.9.3):
     dependencies:
