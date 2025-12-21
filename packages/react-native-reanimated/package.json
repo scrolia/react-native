@@ -1,6 +1,6 @@
 {
     "name": "@scrolia/react-native-reanimated",
-    "version": "0.6.2",
+    "version": "0.6.3",
     "description": "A set of reanimated components for Scrolia React Native",
     "keywords": [
         "scrolia",

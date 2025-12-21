@@ -1,3 +1,9 @@
+## 0.6.3
+
+### What's Changed
+
+- Support React Native 0.83.0
+
 ## 0.6.2 (2025-10-13)
 
 ### What's Changed
