@@ -15,7 +15,9 @@ updates:
       allow:
           - dependency-name: "@apst/biome"
           - dependency-name: "@apst/tsconfig"
+          - dependency-name: "@apst/tsdown"
           - dependency-name: "@biomejs/biome"
+          - dependency-name: "@typescript/native-preview"
           - dependency-name: "tsdown"
           - dependency-name: "typedoc"
           - dependency-name: "typedoc-plugin-markdown"
