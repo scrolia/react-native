@@ -1,11 +1,19 @@
 set shell := ["bash", "-cu"]
-set windows-shell := ["powershell"]
+set windows-shell := ["pwsh", "-Command"]
 
-node_bin := "./node_modules/.bin/"
-biome := node_bin + "biome"
-tsc := node_bin + "tsc"
-tsdown := node_bin + "tsdown"
-typedoc := node_bin + "typedoc"
+tsc := "pnpm exec tsgo"
+biome := "pnpm exec biome"
+tsdown := "pnpm exec tsdown"
+vitest := "pnpm exec vitest"
+typedoc := "pnpm exec typedoc"
+
+lsl_cfg := "-config ../../../.ls-lint.yaml"
+
+dev := "pnpm dev"
+build := "pnpm build"
+start := "pnpm start"
+preview := "pnpm preview"
+publish := "pnpm publish"
 
 native := "packages/react-native"
 flashlist := "packages/react-native-flash-list"
@@ -26,36 +34,47 @@ _:
 i:
     pnpm install
 
+# Lint with ls-lint
+lslint:
+    cd ./{{native}}/src && ls-lint {{lsl_cfg}}
+    cd ./{{flashlist}}/src && ls-lint {{lsl_cfg}}
+    cd ./{{legnedlist}}/src && ls-lint {{lsl_cfg}}
+    cd ./{{reanimated}}/src && ls-lint {{lsl_cfg}}
+
 # Lint with TypeScript Compiler
 tsc:
-    cd ./{{native}} && ../../{{tsc}} --noEmit
-    cd ./{{flashlist}} && ../../{{tsc}} --noEmit
-    cd ./{{legnedlist}} && ../../{{tsc}} --noEmit
-    cd ./{{reanimated}} && ../../{{tsc}} --noEmit
+    cd ./{{native}} && {{tsc}} --noEmit
+    cd ./{{flashlist}} && {{tsc}} --noEmit
+    cd ./{{legnedlist}} && {{tsc}} --noEmit
+    cd ./{{reanimated}} && {{tsc}} --noEmit
 
 # Lint code
 lint:
-    ls-lint
+    just lslint
     typos
     just tsc
 
+# Lint code with Biome
+lint-biome:
+    {{biome}} lint .
+
 # Format code
 fmt:
-    ./{{biome}} check --write .
+    {{biome}} check --write .
 
 # Build all packages
 build:
-    cd ./{{native}} && ../../{{tsdown}} -c ./tsdown.config.ts
-    cd ./{{flashlist}} && ../../{{tsdown}} -c ./tsdown.config.ts
-    cd ./{{legnedlist}} && ../../{{tsdown}} -c ./tsdown.config.ts
-    cd ./{{reanimated}} && ../../{{tsdown}} -c ./tsdown.config.ts
+    cd ./{{native}} && {{tsdown}} -c ./tsdown.config.ts
+    cd ./{{flashlist}} && {{tsdown}} -c ./tsdown.config.ts
+    cd ./{{legnedlist}} && {{tsdown}} -c ./tsdown.config.ts
+    cd ./{{reanimated}} && {{tsdown}} -c ./tsdown.config.ts
 
 # Generate APIs documentation
 api:
-    cd ./{{native}} && ../../{{typedoc}}
-    cd ./{{flashlist}} && ../../{{typedoc}}
-    cd ./{{legnedlist}} && ../../{{typedoc}}
-    cd ./{{reanimated}} && ../../{{typedoc}}
+    cd ./{{native}} && {{typedoc}}
+    cd ./{{flashlist}} && {{typedoc}}
+    cd ./{{legnedlist}} && {{typedoc}}
+    cd ./{{reanimated}} && {{typedoc}}
 
 # Update dependencies in examples
 update-example:
@@ -70,51 +89,51 @@ update-example:
 
 # Start common example in development mode
 example-common:
-    cd ./{{example_common}} && pnpm run dev
+    cd ./{{example_common}} && {{dev}}
 
 # Build common example
 example-common-build:
-    cd ./{{example_common}} && pnpm run build
+    cd ./{{example_common}} && {{build}}
 
 # Start common example in production mode
 example-common-start:
-    cd ./{{example_common}} && pnpm run start
+    cd ./{{example_common}} && {{start}}
 
 # Start flashlist example in development mode
 example-flashlist:
-    cd ./{{example_flashlist}} && pnpm run dev
+    cd ./{{example_flashlist}} && {{dev}}
 
 # Build flashlist example
 example-flashlist-build:
-    cd ./{{example_flashlist}} && pnpm run build
+    cd ./{{example_flashlist}} && {{build}}
 
 # Start flashlist example in production mode
 example-flashlist-start:
-    cd ./{{example_flashlist}} && pnpm run start
+    cd ./{{example_flashlist}} && {{start}}
 
 # Start legendlist example in development mode
 example-legendlist:
-    cd ./{{example_legendlist}} && pnpm run dev
+    cd ./{{example_legendlist}} && {{dev}}
 
 # Build legendlist example
 example-legendlist-build:
-    cd ./{{example_legendlist}} && pnpm run build
+    cd ./{{example_legendlist}} && {{build}}
 
 # Start legendlist example in production mode
 example-legendlist-start:
-    cd ./{{example_legendlist}} && pnpm run start
+    cd ./{{example_legendlist}} && {{start}}
 
 # Start reanimated example in development mode
 example-reanimated:
-    cd ./{{example_reanimated}} && pnpm run dev
+    cd ./{{example_reanimated}} && {{dev}}
 
 # Build reanimated example
 example-reanimated-build:
-    cd ./{{example_reanimated}} && pnpm run build
+    cd ./{{example_reanimated}} && {{build}}
 
 # Start reanimated example in production mode
 example-reanimated-start:
-    cd ./{{example_reanimated}} && pnpm run start
+    cd ./{{example_reanimated}} && {{start}}
 
 # Add/Remove dev version tag for native package
 version-dev-native VERSION="":
@@ -141,19 +160,19 @@ version-dev VERSION="":
 
 # Publish react-native package with dev tag as dry-run
 publish-dev-try-native:
-    cd ./{{native}} && pnpm publish --no-git-checks --tag dev --dry-run
+    cd ./{{native}} && {{publish}} --no-git-checks --tag dev --dry-run
 
 # Publish flashlist package with dev tag as dry-run
 publish-dev-try-flashlist:
-    cd ./{{flashlist}} && pnpm publish --no-git-checks --tag dev --dry-run
+    cd ./{{flashlist}} && {{publish}} --no-git-checks --tag dev --dry-run
 
 # Publish legendlist package with dev tag as dry-run
 publish-dev-try-legendlist:
-    cd ./{{legnedlist}} && pnpm publish --no-git-checks --tag dev --dry-run
+    cd ./{{legnedlist}} && {{publish}} --no-git-checks --tag dev --dry-run
 
 # Publish reanimated package with dev tag as dry-run
 publish-dev-try-reanimated:
-    cd ./{{reanimated}} && pnpm publish --no-git-checks --tag dev --dry-run
+    cd ./{{reanimated}} && {{publish}} --no-git-checks --tag dev --dry-run
 
 # Publish all packages with dev tag
 publish-dev-try:
@@ -164,19 +183,19 @@ publish-dev-try:
 
 # Publish react-native package with dev tag
 publish-dev-native:
-    cd ./{{native}} && pnpm publish --no-git-checks --tag dev
+    cd ./{{native}} && {{publish}} --no-git-checks --tag dev
 
 # Publish flashlist package with dev tag
 publish-dev-flashlist:
-    cd ./{{flashlist}} && pnpm publish --no-git-checks --tag dev
+    cd ./{{flashlist}} && {{publish}} --no-git-checks --tag dev
 
 # Publish legendlist package with dev tag
 publish-dev-legendlist:
-    cd ./{{legnedlist}} && pnpm publish --no-git-checks --tag dev
+    cd ./{{legnedlist}} && {{publish}} --no-git-checks --tag dev
 
 # Publish reanimated package with dev tag
 publish-dev-reanimated:
-    cd ./{{reanimated}} && pnpm publish --no-git-checks --tag dev
+    cd ./{{reanimated}} && {{publish}} --no-git-checks --tag dev
 
 # Publish all packages with dev tag
 publish-dev:
@@ -187,19 +206,19 @@ publish-dev:
 
 # Publish react-native package as dry-run
 publish-try-native:
-    cd ./{{native}} && pnpm publish --no-git-checks --dry-run
+    cd ./{{native}} && {{publish}} --no-git-checks --dry-run
 
 # Publish flashlist package as dry-run
 publish-try-flashlist:
-    cd ./{{flashlist}} && pnpm publish --no-git-checks --dry-run
+    cd ./{{flashlist}} && {{publish}} --no-git-checks --dry-run
 
 # Publish legendlist package as dry-run
 publish-try-legendlist:
-    cd ./{{legnedlist}} && pnpm publish --no-git-checks --dry-run
+    cd ./{{legnedlist}} && {{publish}} --no-git-checks --dry-run
 
 # Publish reanimated package as dry-run
 publish-try-reanimated:
-    cd ./{{reanimated}} && pnpm publish --no-git-checks --dry-run
+    cd ./{{reanimated}} && {{publish}} --no-git-checks --dry-run
 
 # Publish all packages as dry-run
 publish-try:
@@ -210,19 +229,19 @@ publish-try:
 
 # Publish react-native package
 publish-native:
-    cd ./{{native}} && pnpm publish
+    cd ./{{native}} && {{publish}}
 
 # Publish flashlist package
 publish-flashlist:
-    cd ./{{flashlist}} && pnpm publish
+    cd ./{{flashlist}} && {{publish}}
 
 # Publish legendlist package
 publish-legendlist:
-    cd ./{{legnedlist}} && pnpm publish
+    cd ./{{legnedlist}} && {{publish}}
 
 # Publish reanimated package
 publish-reanimated:
-    cd ./{{reanimated}} && pnpm publish
+    cd ./{{reanimated}} && {{publish}}
 
 # Publish all packages
 publish:
@@ -233,39 +252,18 @@ publish:
 
 # Clean builds
 clean:
-    rm -rf ./{{example_common}}/dist
-    rm -rf ./{{example_common}}/.expo
-    rm -rf ./{{example_common}}/expo-env.d.ts
+    rm -rf ./examples/*/dist
+    rm -rf ./examples/*/.expo
+    rm -rf ./examples/*/expo-env.d.ts
 
-    rm -rf ./{{example_flashlist}}/dist
-    rm -rf ./{{example_flashlist}}/.expo
-    rm -rf ./{{example_flashlist}}/expo-env.d.ts
-
-    rm -rf ./{{example_legendlist}}/dist
-    rm -rf ./{{example_legendlist}}/.expo
-    rm -rf ./{{example_legendlist}}/expo-env.d.ts
-
-    rm -rf ./{{example_reanimated}}/dist
-    rm -rf ./{{example_reanimated}}/.expo
-    rm -rf ./{{example_reanimated}}/expo-env.d.ts
-
-    rm -rf ./{{reanimated}}/dist
-    rm -rf ./{{flashlist}}/dist
-    rm -rf ./{{legnedlist}}/dist
-    rm -rf ./{{native}}/dist
+    rm -rf ./packages/*/dist
 
 # Clean everything
 clean-all:
     just clean
 
-    rm -rf ./{{example_common}}/node_modules
-    rm -rf ./{{example_flashlist}}/node_modules
-    rm -rf ./{{example_legendlist}}/node_modules
-    rm -rf ./{{example_reanimated}}/node_modules
+    rm -rf ./examples/*/node_modules
 
-    rm -rf ./{{reanimated}}/node_modules
-    rm -rf ./{{flashlist}}/node_modules
-    rm -rf ./{{legnedlist}}/node_modules
-    rm -rf ./{{native}}/node_modules
+    rm -rf ./packages/*/node_modules
 
     rm -rf ./node_modules
