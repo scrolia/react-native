@@ -1,6 +1,6 @@
 [< Back](../../README.md)
 
-# @scrolia/react-native-reanimated v0.6.3
+# @scrolia/react-native-reanimated v0.6.4
 
 ## Type Aliases
 

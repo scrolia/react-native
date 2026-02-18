@@ -6,6 +6,6 @@
 type OnScrollOptions = Format<FunctionOptions & OnScrollBaseOptions>;
 ```
 
-Defined in: [packages/react-native/src/@types/options.ts:63](https://github.com/scrolia/react-native/blob/a0c75a0c305a9ca4bfc1d54fcdc9562f38cb25fb/packages/react-native/src/@types/options.ts#L63)
+Defined in: [@types/options.ts:63](https://github.com/scrolia/react-native/blob/7e05770537d7aded882ae7e22d43938d8aeba377/packages/react-native/src/@types/options.ts#L63)
 
 The options for the `onScroll` function.
