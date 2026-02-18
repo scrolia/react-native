@@ -17,7 +17,7 @@ catalogs:
         "@legendapp/list": ^2.0.0
         "@shopify/flash-list": ^2.0.0
         react: ^19.0.0
-        react-native: ~0.78.0 || ~0.79.0 || ~0.80.0 || ~0.81.0 || ~0.82.0 || ~0.83.0
+        react-native: ~0.78.0 || ~0.79.0 || ~0.80.0 || ~0.81.0 || ~0.82.0 || ~0.83.0 || ~0.84.0
         react-native-reanimated: ^3.16.0 || ^4.0.0
 
 minimumReleaseAge: 1440
