@@ -1,35 +1,42 @@
+## 0.6.4
+
+### What's Changed
+
+- support React Native 0.84.0
+- upgrade dependencies
+
 ## 0.6.3 (2025-12-21)
 
 ### What's Changed
 
-- Support React Native 0.83.0
+- support React Native 0.83.0
 
 ## 0.6.2 (2025-10-13)
 
 ### What's Changed
 
-- Support React Native 0.82.0
+- support React Native 0.82.0
 
 ## 0.6.1 (2025-08-18)
 
 ### What's Changed
 
-- Support React Native 0.81.0
+- support React Native 0.81.0
 
 ## 0.6.0 (2025-08-09)
 
 ### Breaking Changes
 
-- Remove default styles
-- Remove Original `Scrollbar` component
-- Remove all previous options
-- All components passed into `Scrollbar` object
+- remove default styles
+- remove Original `Scrollbar` component
+- remove all previous options
+- all components passed into `Scrollbar` object
 
 ### What's New
 
 - React 19 support
-- Headless by default
-- Add `Provider` component
+- headless by default
+- add `Provider` component
 - `Provider` component now accepts the following props:
     - `disabled`
     - `page`
@@ -83,18 +90,18 @@ Import `Scrollbar` instead:
 
 ### What's Changed
 
-- Update dependencies
+- upgrade dependencies
 
 ## 0.4.0 (2025-04-17)
 
 ### Breaking Changes
 
-- Move options:
+- move options:
     - `disabled`
     - `color` => `thumbColor.base`
     - `colorHover` => `thumbColor.hover`
     - `colorActive` => `thumbColor.press`
-- Remove options:
+- remove options:
     - `position`
     - `containerProps`
     - `contentProps`
@@ -102,11 +109,11 @@ Import `Scrollbar` instead:
     - `trackYProps`
     - `thumbXProps`
     - `thumbYProps`
-- Remove `useDeviceEnvironment` hook
+- remove `useDeviceEnvironment` hook
 
 ### What's New
 
-- Add components:
+- add components:
     - `Container`
     - `ContentX`
     - `ContentY`
@@ -116,44 +123,44 @@ Import `Scrollbar` instead:
     - `TrackY`
     - `ThumbX`
     - `ThumbY`
-- Add `headless` option
-- Add `noAnimation` option
-- Add `useNativeDriver` option
-- Add `setScrollbarLength` option
-- Add `x` object option
-- Add `y` object option
-- Add sourcemap support
+- add `headless` option
+- add `noAnimation` option
+- add `useNativeDriver` option
+- add `setScrollbarLength` option
+- add `x` object option
+- add `y` object option
+- add sourcemap support
 
 ## 0.3.0 (2024-12-18)
 
 ### Breaking Changes
 
-- Remove `enable` prop, use `disabled` prop instead
-- Rename `colorDrag` to `colorActive`
-- Update `useDeviceEnvironment` hook for the new prop
+- remove `enable` prop, use `disabled` prop instead
+- rename `colorDrag` to `colorActive`
+- update `useDeviceEnvironment` hook for the new prop
 
 ### What's New
 
-- Add `disabled` prop
+- add `disabled` prop
 
 ## 0.2.0 (2024-11-28)
 
 ### What's New
 
-- Add support for ES Module
-- Add `useDeviceEnvironment` hook
-- Add `enable` option
+- add support for ES Module
+- add `useDeviceEnvironment` hook
+- add `enable` option
 
 ### What's Changed
 
-- Support all environments by default
+- support all environments by default
 
 ## 0.1.1 (2024-05-30)
 
 ### What's Changed
 
-- Update description
+- update description
 
 ## 0.1.0 (2024-05-30)
 
-First release
+initial release
