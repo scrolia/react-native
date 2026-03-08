@@ -5,7 +5,7 @@ A customizable scrollbar component.
 ## Documentation
 
 For the documentation, 
-please refer to the [documentation](./docs//README.md).
+please refer to the [documentation](./docs/README.md).
 
 ## APIs
 
