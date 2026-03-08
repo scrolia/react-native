@@ -1,3 +1,9 @@
+## Next
+
+### What's Changed
+
+- optimize internal states logic
+
 ## 0.6.4 (2026-02-18)
 
 ### What's Changed
