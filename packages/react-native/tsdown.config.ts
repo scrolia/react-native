@@ -13,6 +13,7 @@ export default defineConfig(
             "hooks/thumb/index": "./src/hooks/thumb/index.ts",
         },
         platform: "browser",
+        unbundle: true,
     },
     [
         esmPreset(),
