@@ -120,5 +120,5 @@ type ContentXHandler = ReturnType<typeof useContentXHandler>;
 /** Result of the `useContentYHandler` hook. */
 type ContentYHandler = ReturnType<typeof useContentYHandler>;
 
-export type { UseContentHandlerOptions, ContentXHandler, ContentYHandler };
+export type { ContentXHandler, ContentYHandler, UseContentHandlerOptions };
 export { useContentXHandler, useContentYHandler };
