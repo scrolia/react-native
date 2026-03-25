@@ -7,7 +7,7 @@
         "@biomejs/biome": "^2.4.8",
         "@typescript/native-preview": "7.0.0-dev.20260323.1",
         "tsdown": "~0.21.4",
-        "typedoc": "~0.28.17",
+        "typedoc": "~0.28.18",
         "typedoc-plugin-markdown": "^4.11.0",
         "typescript": "^5.9.3"
     }
