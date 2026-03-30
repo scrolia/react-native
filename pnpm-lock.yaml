@@ -38,10 +38,10 @@ importers:
         version: 0.3.1(@biomejs/biome@2.4.9)
       '@apst/tsconfig':
         specifier: ~0.3.0
-        version: 0.3.0(typescript@5.9.3)
+        version: 0.3.0(typescript@6.0.2)
       '@apst/tsdown':
         specifier: ~0.3.1
-        version: 0.3.1(tsdown@0.21.5(@typescript/native-preview@7.0.0-dev.20260325.1)(typescript@5.9.3))
+        version: 0.3.1(tsdown@0.21.5(@typescript/native-preview@7.0.0-dev.20260325.1)(typescript@6.0.2))
       '@biomejs/biome':
         specifier: ^2.4.9
         version: 2.4.9
@@ -50,16 +50,16 @@ importers:
         version: 7.0.0-dev.20260325.1
       tsdown:
         specifier: ~0.21.5
-        version: 0.21.5(@typescript/native-preview@7.0.0-dev.20260325.1)(typescript@5.9.3)
+        version: 0.21.5(@typescript/native-preview@7.0.0-dev.20260325.1)(typescript@6.0.2)
       typedoc:
         specifier: ~0.28.18
-        version: 0.28.18(typescript@5.9.3)
+        version: 0.28.18(typescript@6.0.2)
       typedoc-plugin-markdown:
         specifier: ^4.11.0
-        version: 4.11.0(typedoc@0.28.18(typescript@5.9.3))
+        version: 4.11.0(typedoc@0.28.18(typescript@6.0.2))
       typescript:
-        specifier: ^5.9.3
-        version: 5.9.3
+        specifier: ^6.0.2
+        version: 6.0.2
 
   examples/react-native:
     dependencies:
@@ -1528,6 +1528,7 @@ packages:
   '@xmldom/xmldom@0.8.10':
     resolution: {integrity: sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==}
     engines: {node: '>=10.0.0'}
+    deprecated: this version has critical issues, please update to the latest version
 
   abort-controller@3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
@@ -3516,8 +3517,8 @@ packages:
     peerDependencies:
       typescript: 5.0.x || 5.1.x || 5.2.x || 5.3.x || 5.4.x || 5.5.x || 5.6.x || 5.7.x || 5.8.x || 5.9.x || 6.0.x
 
-  typescript@5.9.3:
-    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+  typescript@6.0.2:
+    resolution: {integrity: sha512-bGdAIrZ0wiGDo5l8c++HWtbaNCWTS4UTv7RaTH/ThVIgjkveJt83m74bBHMJkuCbslY8ixgLBVZJIOiQlQTjfQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -3747,15 +3748,15 @@ snapshots:
     optionalDependencies:
       '@biomejs/biome': 2.4.9
 
-  '@apst/tsconfig@0.3.0(typescript@5.9.3)':
+  '@apst/tsconfig@0.3.0(typescript@6.0.2)':
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.2
 
-  '@apst/tsdown@0.3.1(tsdown@0.21.5(@typescript/native-preview@7.0.0-dev.20260325.1)(typescript@5.9.3))':
+  '@apst/tsdown@0.3.1(tsdown@0.21.5(@typescript/native-preview@7.0.0-dev.20260325.1)(typescript@6.0.2))':
     dependencies:
       es-toolkit: 1.45.1
     optionalDependencies:
-      tsdown: 0.21.5(@typescript/native-preview@7.0.0-dev.20260325.1)(typescript@5.9.3)
+      tsdown: 0.21.5(@typescript/native-preview@7.0.0-dev.20260325.1)(typescript@6.0.2)
 
   '@babel/code-frame@7.10.4':
     dependencies:
@@ -7358,7 +7359,7 @@ snapshots:
     dependencies:
       glob: 7.2.3
 
-  rolldown-plugin-dts@0.22.5(@typescript/native-preview@7.0.0-dev.20260325.1)(rolldown@1.0.0-rc.11)(typescript@5.9.3):
+  rolldown-plugin-dts@0.22.5(@typescript/native-preview@7.0.0-dev.20260325.1)(rolldown@1.0.0-rc.11)(typescript@6.0.2):
     dependencies:
       '@babel/generator': 8.0.0-rc.2
       '@babel/helper-validator-identifier': 8.0.0-rc.2
@@ -7372,7 +7373,7 @@ snapshots:
       rolldown: 1.0.0-rc.11
     optionalDependencies:
       '@typescript/native-preview': 7.0.0-dev.20260325.1
-      typescript: 5.9.3
+      typescript: 6.0.2
     transitivePeerDependencies:
       - oxc-resolver
 
@@ -7635,7 +7636,7 @@ snapshots:
 
   ts-vista@0.2.3: {}
 
-  tsdown@0.21.5(@typescript/native-preview@7.0.0-dev.20260325.1)(typescript@5.9.3):
+  tsdown@0.21.5(@typescript/native-preview@7.0.0-dev.20260325.1)(typescript@6.0.2):
     dependencies:
       ansis: 4.2.0
       cac: 7.0.0
@@ -7646,7 +7647,7 @@ snapshots:
       obug: 2.1.1
       picomatch: 4.0.4
       rolldown: 1.0.0-rc.11
-      rolldown-plugin-dts: 0.22.5(@typescript/native-preview@7.0.0-dev.20260325.1)(rolldown@1.0.0-rc.11)(typescript@5.9.3)
+      rolldown-plugin-dts: 0.22.5(@typescript/native-preview@7.0.0-dev.20260325.1)(rolldown@1.0.0-rc.11)(typescript@6.0.2)
       semver: 7.7.4
       tinyexec: 1.0.4
       tinyglobby: 0.2.15
@@ -7654,7 +7655,7 @@ snapshots:
       unconfig-core: 7.5.0
       unrun: 0.2.33
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.2
     transitivePeerDependencies:
       - '@ts-macro/tsc'
       - '@typescript/native-preview'
@@ -7670,20 +7671,20 @@ snapshots:
 
   type-fest@0.7.1: {}
 
-  typedoc-plugin-markdown@4.11.0(typedoc@0.28.18(typescript@5.9.3)):
+  typedoc-plugin-markdown@4.11.0(typedoc@0.28.18(typescript@6.0.2)):
     dependencies:
-      typedoc: 0.28.18(typescript@5.9.3)
+      typedoc: 0.28.18(typescript@6.0.2)
 
-  typedoc@0.28.18(typescript@5.9.3):
+  typedoc@0.28.18(typescript@6.0.2):
     dependencies:
       '@gerrit0/mini-shiki': 3.23.0
       lunr: 2.3.9
       markdown-it: 14.1.1
       minimatch: 10.2.4
-      typescript: 5.9.3
+      typescript: 6.0.2
       yaml: 2.8.3
 
-  typescript@5.9.3: {}
+  typescript@6.0.2: {}
 
   ua-parser-js@1.0.40: {}
 
