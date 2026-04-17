@@ -5,7 +5,7 @@
         "@apst/tsconfig": "~0.3.0",
         "@apst/tsdown": "~0.3.1",
         "@biomejs/biome": "^2.4.12",
-        "@typescript/native-preview": "7.0.0-dev.20260414.1",
+        "@typescript/native-preview": "7.0.0-dev.20260415.1",
         "tsdown": "~0.21.8",
         "typedoc": "~0.28.19",
         "typedoc-plugin-markdown": "^4.11.0",
