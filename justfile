@@ -27,21 +27,32 @@ example_reanimated := "examples/react-native-reanimated"
 
 # Default action
 _:
-    just lint
-    just fmt
+    just --list -u
 
 # Install
 i:
     pnpm install
 
-# Lint with ls-lint
-lslint:
+# Format code
+fmt:
+    {{biome}} check --write .
+
+# Lint code with ls-lint
+ls-lint:
     cd ./{{native}}/src && ls-lint {{lsl_cfg}}
     cd ./{{flashlist}}/src && ls-lint {{lsl_cfg}}
     cd ./{{legnedlist}}/src && ls-lint {{lsl_cfg}}
     cd ./{{reanimated}}/src && ls-lint {{lsl_cfg}}
 
-# Lint with TypeScript Compiler
+# Lint code with ls-lint
+lslint:
+    just ls-lint
+
+# Lint code with typos-cli
+typos:
+    typos
+
+# Lint code with TypeScript Compiler
 tsc:
     cd ./{{native}} && {{tsc}} --noEmit
     cd ./{{flashlist}} && {{tsc}} --noEmit
@@ -51,16 +62,17 @@ tsc:
 # Lint code
 lint:
     just lslint
-    typos
+    just typos
     just tsc
 
 # Lint code with Biome
 lint-biome:
     {{biome}} lint .
 
-# Format code
-fmt:
-    {{biome}} check --write .
+# Check code
+check:
+    just fmt
+    just lint
 
 # Build all packages
 build:
