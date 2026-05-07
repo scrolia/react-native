@@ -71,6 +71,7 @@ lint-biome:
 
 # Check code
 check:
+    just build
     just fmt
     just lint
 
@@ -262,16 +263,32 @@ publish:
     just publish-legendlist
     just publish-reanimated
 
-# Clean builds
-clean:
+# Clean builds (Linux)
+clean-linux:
     rm -rf ./examples/*/dist
     rm -rf ./examples/*/.expo
     rm -rf ./examples/*/expo-env.d.ts
 
     rm -rf ./packages/*/dist
 
-# Clean everything
-clean-all:
+# Clean builds (macOS)
+clean-macos:
+    just clean-linux
+
+# Clean builds (Windows)
+clean-windows:
+    Remove-Item -Recurse -Force ./examples/*/dist
+    Remove-Item -Recurse -Force ./examples/*/.expo
+    Remove-Item -Recurse -Force ./examples/*/expo-env.d.ts
+
+    Remove-Item -Recurse -Force ./packages/*/dist
+
+# Clean builds
+clean:
+    just clean-{{os()}}
+
+# Clean everything (Linux)
+clean-all-linux:
     just clean
 
     rm -rf ./examples/*/node_modules
@@ -279,3 +296,21 @@ clean-all:
     rm -rf ./packages/*/node_modules
 
     rm -rf ./node_modules
+
+# Clean everything (macOS)
+clean-all-macos:
+    just clean-all-linux
+
+# Clean everything (Windows)
+clean-all-windows:
+    just clean
+
+    Remove-Item -Recurse -Force ./examples/*/node_modules
+
+    Remove-Item -Recurse -Force ./packages/*/node_modules
+
+    Remove-Item -Recurse -Force ./node_modules
+
+# Clean everything
+clean-all:
+    just clean-all-{{os()}}
