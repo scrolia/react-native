@@ -3,6 +3,10 @@ packages:
     - ./examples/*
     - ./tests/*
 
+nodeLinker: hoisted
+autoInstallPeers: false
+strictPeerDependencies: false
+
 catalogs:
     dep:
         ts-vista: ~0.2.3
