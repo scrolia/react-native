@@ -8,7 +8,7 @@
         "@typescript/native-preview": "7.0.0-dev.20260707.2",
         "tsdown": "~0.22.14",
         "typedoc": "~0.28.20",
-        "typedoc-plugin-markdown": "^4.12.0",
+        "typedoc-plugin-markdown": "^4.13.0",
         "typescript": "^6.0.3"
     }
 }
