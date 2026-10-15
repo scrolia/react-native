@@ -55,8 +55,8 @@ importers:
         specifier: ~0.28.20
         version: 0.28.20(typescript@6.0.3)
       typedoc-plugin-markdown:
-        specifier: ^4.13.1
-        version: 4.13.1(typedoc@0.28.20(typescript@6.0.3))
+        specifier: ^4.14.0
+        version: 4.14.0(typedoc@0.28.20(typescript@6.0.3))
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -3621,8 +3621,8 @@ packages:
     resolution: {integrity: sha512-Ne2YiiGN8bmrmJJEuTWTLJR32nh/JdL1+PSicowtNb0WFpn59GK8/lfD61bVtzguz7b3PBt74nxpv/Pw5po5Rg==}
     engines: {node: '>=8'}
 
-  typedoc-plugin-markdown@4.13.1:
-    resolution: {integrity: sha512-d3jchJ4CyIrV9w9uozTSkfMYG8IEM1RvvGOaybJ/3rRporzoX7p0lprffo95GOGUviQqP0phjHJE3bY8PQbilA==}
+  typedoc-plugin-markdown@4.14.0:
+    resolution: {integrity: sha512-Y2a3oDV9ekrbkk6RBSGH8GyNkh0xIdemIOOTr3tiRN/33nvFGStOs9nw+6Q84gF1XFkcVZrgM4Ckcsf6e/YpKQ==}
     engines: {node: '>= 18'}
     peerDependencies:
       typedoc: 0.28.x
@@ -6815,7 +6815,7 @@ snapshots:
       '@babel/types': 7.27.6
       flow-enums-runtime: 0.0.6
       invariant: 2.2.4
-      metro-symbolicate: 0.81.5(supports-color@8.1.1)
+      metro-symbolicate: 0.81.5
       nullthrows: 1.1.1
       ob1: 0.81.5
       source-map: 0.5.7
@@ -6830,7 +6830,7 @@ snapshots:
       '@babel/types': 7.28.2
       flow-enums-runtime: 0.0.6
       invariant: 2.2.4
-      metro-symbolicate: 0.82.4(supports-color@8.1.1)
+      metro-symbolicate: 0.82.4
       nullthrows: 1.1.1
       ob1: 0.82.4
       source-map: 0.5.7
@@ -6838,7 +6838,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  metro-symbolicate@0.81.5(supports-color@8.1.1):
+  metro-symbolicate@0.81.5:
     dependencies:
       flow-enums-runtime: 0.0.6
       invariant: 2.2.4
@@ -6846,10 +6846,8 @@ snapshots:
       nullthrows: 1.1.1
       source-map: 0.5.7
       vlq: 1.0.1
-    transitivePeerDependencies:
-      - supports-color
 
-  metro-symbolicate@0.82.4(supports-color@8.1.1):
+  metro-symbolicate@0.82.4:
     dependencies:
       flow-enums-runtime: 0.0.6
       invariant: 2.2.4
@@ -6857,8 +6855,6 @@ snapshots:
       nullthrows: 1.1.1
       source-map: 0.5.7
       vlq: 1.0.1
-    transitivePeerDependencies:
-      - supports-color
 
   metro-transform-plugins@0.81.5(supports-color@8.1.1):
     dependencies:
@@ -6954,7 +6950,7 @@ snapshots:
       metro-resolver: 0.81.5
       metro-runtime: 0.81.5
       metro-source-map: 0.81.5(supports-color@8.1.1)
-      metro-symbolicate: 0.81.5(supports-color@8.1.1)
+      metro-symbolicate: 0.81.5
       metro-transform-plugins: 0.81.5(supports-color@8.1.1)
       metro-transform-worker: 0.81.5(supports-color@8.1.1)
       mime-types: 2.1.35
@@ -7001,7 +6997,7 @@ snapshots:
       metro-resolver: 0.82.4
       metro-runtime: 0.82.4
       metro-source-map: 0.82.4(supports-color@8.1.1)
-      metro-symbolicate: 0.82.4(supports-color@8.1.1)
+      metro-symbolicate: 0.82.4
       metro-transform-plugins: 0.82.4(supports-color@8.1.1)
       metro-transform-worker: 0.82.4(supports-color@8.1.1)
       mime-types: 2.1.35
@@ -7836,7 +7832,7 @@ snapshots:
 
   type-fest@0.7.1: {}
 
-  typedoc-plugin-markdown@4.13.1(typedoc@0.28.20(typescript@6.0.3)):
+  typedoc-plugin-markdown@4.14.0(typedoc@0.28.20(typescript@6.0.3)):
     dependencies:
       typedoc: 0.28.20(typescript@6.0.3)
 
